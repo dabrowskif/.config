@@ -88,7 +88,7 @@ return {
     require('dap-vscode-js').setup {
       -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
       -- debugger_path = '(runtimedir)/site/pack/packer/opt/vscode-js-debug', -- Path to vscode-js-debug installation.
-      -- debugger_path  = 'vim.fn.stdpath('data') .. "/lazy/vscode-js-debug"'
+      debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug',
       -- debugger_cmd = { "extension" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
       adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost', 'node' }, -- which adapters to register in nvim-dap
       -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
@@ -98,19 +98,38 @@ return {
 
     for _, language in ipairs { 'typescript', 'javascript' } do
       require('dap').configurations[language] = {
+        -- {
+        --   type = 'pwa-node',
+        --   request = 'launch',
+        --   name = 'Launch file',
+        --   program = '${file}',
+        --   cwd = '${workspaceFolder}',
+        -- },
+        -- {
+        --   type = 'pwa-node',
+        --   request = 'attach',
+        --   name = 'Attach',
+        --   processId = require('dap.utils').pick_process,
+        --   cwd = '${workspaceFolder}',
+        -- },
         {
+          -- use nvim-dap-vscode-js's pwa-node debug adapter
           type = 'pwa-node',
-          request = 'launch',
-          name = 'Launch file',
-          program = '${file}',
-          cwd = '${workspaceFolder}',
-        },
-        {
-          type = 'pwa-node',
+          -- attach to an already running node process with --inspect flag
+          -- default port: 9222
           request = 'attach',
-          name = 'Attach',
+          -- allows us to pick the process using a picker
           processId = require('dap.utils').pick_process,
-          cwd = '${workspaceFolder}',
+          -- name of the debug action
+          name = 'Attach debugger to existing `node --inspect` process',
+          -- for compiled languages like TypeScript or Svelte.js
+          sourceMaps = true,
+          -- resolve source maps in nested locations while ignoring node_modules
+          resolveSourceMapLocations = { '${workspaceFolder}/**', '!**/node_modules/**' },
+          -- path to src in vite based projects (and most other projects as well)
+          cwd = '${workspaceFolder}/src',
+          -- we don't want to debug code inside node_modules, so skip it!
+          skipFiles = { '${workspaceFolder}/node_modules/**/*.js' },
         },
       }
     end

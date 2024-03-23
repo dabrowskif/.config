@@ -269,7 +269,7 @@ require('lazy').setup({
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
   -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
@@ -327,6 +327,11 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+vim.opt.tabstop = 3
+vim.opt.shiftwidth = 3
+vim.opt.expandtab = true
+vim.bo.softtabstop = 3
+
 -- [[ Custom Keymaps ]]
 
 -- move around
@@ -353,13 +358,6 @@ vim.keymap.set('n', '<leader>vr', ':LspRestart<CR>', { desc = 'Restart LSP' })
 
 -- Quit Neovim
 vim.keymap.set('n', '<leader>vq', ':wqa<CR>', { desc = 'Save all and quit Neovim' })
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = '*',
-  callback = function(args)
-    require('conform').format { bufnr = args.buf }
-  end,
-})
 
 -- [[ Basic Keymaps ]]
 
@@ -474,7 +472,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'hcl' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -568,8 +566,6 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', function()
     vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
   end, '[C]ode [A]ction')
-  -- vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
-  -- vim.keymap.set('n', '<leader>ca', '<Cmd>Lspsaga code_action<CR>', { buffer = bufnr, silent = true, noremap = true, desc = 'Show code actions' })
 
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -578,22 +574,11 @@ local on_attach = function(_, bufnr)
   -- nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
   -- TODO: check this
   -- nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  --
   -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  -- vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', { buffer = bufnr, silent = true, noremap = true, desc = 'Show hover documentation' })
-
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
-  -- Lesser used LSP functionality
-  nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-  -- nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-  -- nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-  -- nmap('<leader>wl', function()
-  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end, '[W]orkspace [L]ist Folders')
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
@@ -638,16 +623,14 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
   tsserver = {},
-  terraformls = {},
   graphql = {},
   tailwindcss = {},
   eslint = {},
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
+  html = { filetypes = { 'html' } },
+  terraformls = {
+    terraform = {},
+  },
 
   lua_ls = {
     Lua = {
@@ -665,7 +648,6 @@ require('neodev').setup()
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -676,6 +658,12 @@ mason_lspconfig.setup {
 mason_lspconfig.setup_handlers {
   function(server_name)
     require('lspconfig')[server_name].setup {
+      init_options = {
+        preferences = {
+          importModuleSpecifierPreference = 'relative',
+          importModuleSpecifierEnding = 'minimal',
+        },
+      },
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
@@ -683,7 +671,6 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
