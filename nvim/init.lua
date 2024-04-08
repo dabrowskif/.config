@@ -627,6 +627,8 @@ local servers = {
   graphql = {},
   tailwindcss = {},
   eslint = {},
+  gopls = {},
+  golangci_lint_ls = {},
   html = { filetypes = { 'html' } },
   terraformls = {
     terraform = {},
