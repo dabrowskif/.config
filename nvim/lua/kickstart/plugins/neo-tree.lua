@@ -1,23 +1,38 @@
+-- Neo-tree is a Neovim plugin to browse the file system
+-- https://github.com/nvim-neo-tree/neo-tree.nvim
+
 return {
   'nvim-neo-tree/neo-tree.nvim',
   lazy = false,
-  priority = 1001,
-  branch = 'v3.x',
+  version = '*',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
+    'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
     'MunifTanjim/nui.nvim',
     '3rd/image.nvim',
   },
+  cmd = 'Neotree',
+  keys = {
+    { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
+  },
+  opts = {},
+  -- TODO: check opts
   config = function()
+    vim.cmd [[ let g:neo_tree_remove_legacy_commands = 1 ]]
+
     vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })
     vim.fn.sign_define('DiagnosticSignWarn', { text = ' ', texthl = 'DiagnosticSignWarn' })
     vim.fn.sign_define('DiagnosticSignInfo', { text = ' ', texthl = 'DiagnosticSignInfo' })
     vim.fn.sign_define('DiagnosticSignHint', { text = '󰌵', texthl = 'DiagnosticSignHint' })
 
-    vim.keymap.set('n', '<leader>fe', ':Neotree toggle<cr>', { desc = '' })
+    vim.keymap.set('n', '<leader>te', ':Neotree toggle<cr>', { desc = '[T]oggle file [E]xplorer' })
 
     require('neo-tree').setup {
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+        },
+      },
       window = {
         mappings = {
           ['t'] = {
@@ -25,11 +40,6 @@ return {
             nowait = false,
           },
           ['<space><space>'] = 'open_tabnew',
-        },
-      },
-      filesystem = {
-        follow_current_file = {
-          enabled = true,
         },
       },
     }
