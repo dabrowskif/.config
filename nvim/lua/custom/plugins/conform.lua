@@ -6,6 +6,7 @@ return {
         lua = { 'stylua' },
         javascript = { { 'prettierd', 'prettier' } },
         typescript = { { 'prettierd', 'prettier' } },
+        sveltekit = { { 'prettierd', 'prettier' } },
         go = { 'gopls' },
       },
       format_on_save = {
