@@ -60,7 +60,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+-- vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
 vim.opt.cursorline = true
@@ -407,7 +407,10 @@ require('lazy').setup({
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
-          map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          -- map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+          vim.keymap.set('n', '<leader>rn', function()
+            return ':IncRename ' .. vim.fn.expand '<cword>'
+          end, { expr = true })
 
           -- Execute a code action, usually your cursor needs to be on top of an error
           -- or a suggestion from your LSP for this to activate.
@@ -588,9 +591,8 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        -- javascript = { { 'eslint_d', 'eslint', 'prettierd', 'prettier' } },
-        javascript = { 'prettierd', 'eslint_d' },
-        typescript = { 'prettierd', 'eslint_d' },
+        javascript = { 'prettierd', 'eslint_d' }, -- some raw js files does not have eslint hence prettierd for simple formatting (does not require prettier config file)
+        typescript = { 'eslint_d' },
       },
     },
     -- config = function()
@@ -741,40 +743,29 @@ require('lazy').setup({
           sidebars = 'transparent',
         },
         transparent = true,
-        -- on_colors = function(colors)
-        --   colors.hint = colors.orange
-        --   colors.error = '#ff0000'
-        -- end,
-        -- on_highlights = function(hl, c)
-        --   local prompt = '#2d3149'
-        --   hl.TelescopeNormal = {
-        --     bg = c.bg_dark,
-        --     fg = c.fg_dark,
-        --   }
-        --   hl.TelescopeBorder = {
-        --     bg = c.bg_dark,
-        --     fg = c.bg_dark,
-        --   }
-        --   hl.TelescopePromptNormal = {
-        --     bg = prompt,
-        --   }
-        --   hl.TelescopePromptBorder = {
-        --     bg = prompt,
-        --     fg = prompt,
-        --   }
-        --   hl.TelescopePromptTitle = {
-        --     bg = prompt,
-        --     fg = prompt,
-        --   }
-        --   hl.TelescopePreviewTitle = {
-        --     bg = c.bg_dark,
-        --     fg = c.bg_dark,
-        --   }
-        --   hl.TelescopeResultsTitle = {
-        --     bg = c.bg_dark,
-        --     fg = c.bg_dark,
-        --   }
-        -- end,
+        on_colors = function(colors)
+          colors.hint = colors.orange
+          colors.error = '#ff0000'
+        end,
+        on_highlights = function(hl, c)
+          local prompt = '#2d3149'
+          hl.TelescopeNormal = {
+            bg = c.bg_dark,
+            fg = c.fg_dark,
+          }
+          hl.TelescopeBorder = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+          hl.TelescopePreviewTitle = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+          hl.TelescopeResultsTitle = {
+            bg = c.bg_dark,
+            fg = c.bg_dark,
+          }
+        end,
       }
       require('solarized-osaka').load()
     end,
