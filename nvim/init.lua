@@ -914,8 +914,8 @@ vim.keymap.set('n', '<leader>vr', ':LspRestart<CR>', { desc = 'Restart LSP' })
 vim.keymap.set('n', '<leader>vq', ':wqa<CR>', { desc = 'Save all and quit Neovim' })
 
 -- move blocks
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
 
 -- centering upon searching/moving vertically
 vim.keymap.set('n', '<C-d>', '<C-d>zz')

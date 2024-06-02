@@ -33,33 +33,22 @@ config.colors = {
 	},
 }
 
-config.font = wezterm.font("Monaspace Argon")
+config.font = wezterm.font("Monaspace Argon", { weight = "Medium" })
 -- config.font = wezterm.font("MesloLGS Nerd Font Mono")
-
 config.font_size = 15
+
 config.background = {
 	{
 		source = {
-			File = "/Users/filip.dabrowski/Public/wallpaper-nodejs.png",
+			File = "/Users/filip.dabrowski/Public/wallpaper-ilidan.jpg",
 		},
 		hsb = {
 
-			brightness = 0.05,
-			hue = 1.0,
-			saturation = 0.5,
+			brightness = 0.02,
+			hue = 1,
+			saturation = 1,
 		},
 	},
-	-- {
-	-- 	source = {
-	-- 		File = "/Users/filip.dabrowski/Public/wallpaper.jpg",
-	-- 	},
-	-- 	hsb = {
-	--
-	-- 		brightness = 0.01,
-	-- 		hue = 1.0,
-	-- 		saturation = 0.4,
-	-- 	},
-	-- },
 }
 
 -- config.window_decorations = "RESIZE"
@@ -70,12 +59,14 @@ config.window_padding = {
 	top = 5,
 	bottom = 5,
 }
+
 config.skip_close_confirmation_for_processes_named = {
 	"sh",
 	"zsh",
 	"nvim",
 	"wezterm",
 }
+
 config.keys = {
 	{ key = "LeftArrow", mods = "SHIFT", action = wezterm.action({ MoveTabRelative = -1 }) },
 	{ key = "RightArrow", mods = "SHIFT", action = wezterm.action({ MoveTabRelative = 1 }) },
