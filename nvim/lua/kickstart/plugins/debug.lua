@@ -49,11 +49,12 @@ return {
     -- Basic debugging keymaps, feel free to change to your liking!
     vim.keymap.set('n', '<leader>dt', require('dapui').toggle, { desc = '[D]ebugger: toggle' })
 
-    vim.keymap.set('n', '<leader>d1', dap.continue, { desc = '[D]ebugger: Start/Continue' })
-    vim.keymap.set('n', '<leader>d2', dap.step_into, { desc = '[D]ebugger: Step Into' })
-    vim.keymap.set('n', '<leader>d3', dap.step_over, { desc = '[D]ebugger: Step Over' })
-    vim.keymap.set('n', '<leader>d4', dap.step_out, { desc = '[D]ebugger: Step Out' })
-    vim.keymap.set('n', '<leader>d5', dap.step_back, { desc = '[D]ebugger: Step Back' })
+    vim.keymap.set('n', '<F1>', dap.continue, { desc = '[D]ebugger: Start/Continue' })
+    vim.keymap.set('n', '<F2>', dap.step_into, { desc = '[D]ebugger: Step Into' })
+    vim.keymap.set('n', '<F3>', dap.step_over, { desc = '[D]ebugger: Step Over' })
+    vim.keymap.set('n', '<F4>', dap.step_out, { desc = '[D]ebugger: Step Out' })
+    vim.keymap.set('n', '<F5>', dap.step_back, { desc = '[D]ebugger: Step Back' })
+    vim.keymap.set('n', '<F12>', dap.disconnect, { desc = '[D]ebugger: Step Back' })
 
     vim.keymap.set('n', '<leader>db', dap.toggle_breakpoint, { desc = '[D]ebugger: Toggle Breakpoint' })
     vim.keymap.set('n', '<leader>dB', function()
@@ -99,7 +100,6 @@ return {
     -- }
     require('dap-vscode-js').setup {
       -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-      -- debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug',
       debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug',
       -- debugger_cmd = { "extension" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
       -- adapters = { 'pwa-node', 'pwa-chrome',  'node-terminal', 'pwa-extensionHost', 'node' }, -- which adapters to register in nvim-dap
@@ -115,16 +115,16 @@ return {
       require('dap').configurations[language] = {
         {
           type = 'pwa-node',
-          request = 'launch',
-          name = 'Launch file',
-          program = '${file}',
+          request = 'attach',
+          name = 'Attach',
+          processId = require('dap.utils').pick_process,
           cwd = '${workspaceFolder}',
         },
         {
           type = 'pwa-node',
-          request = 'attach',
-          name = 'Attach',
-          processId = require('dap.utils').pick_process,
+          request = 'launch',
+          name = 'Launch file',
+          program = '${file}',
           cwd = '${workspaceFolder}',
         },
         {

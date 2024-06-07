@@ -28,6 +28,12 @@ return {
     vim.keymap.set('n', '<leader>te', ':Neotree toggle<cr>', { desc = '[T]oggle file [E]xplorer' })
 
     require('neo-tree').setup {
+      event_handlers = {
+        event = 'neo_tree_buffer_enter',
+        handler = function()
+          vim.opt_local.relativenumber = true
+        end,
+      },
       filesystem = {
         follow_current_file = {
           enabled = true,

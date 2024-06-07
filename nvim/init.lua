@@ -267,6 +267,16 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
+        defaults = {
+          mappings = {
+            i = {
+              ['<C-e>'] = require('telescope.actions').select_default + require('telescope.actions').center,
+            },
+            n = {
+              ['<C-e>'] = require('telescope.actions').select_default + require('telescope.actions').center,
+            },
+          },
+        },
         -- defaults = {
         --   mappings = {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
