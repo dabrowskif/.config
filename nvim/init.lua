@@ -516,6 +516,21 @@ require('lazy').setup({
         hadolint = {},
         markdownlint = {},
         prettierd = {},
+        gopls = {},
+        goimports = {},
+        templ = {},
+        htmlbeautifier = {
+          filetypes = { 'template', 'gotempl' },
+        },
+        htmlhint = {
+          filetypes = { 'template', 'gotempl' },
+        },
+        html = {
+          filetypes = { 'template', 'gotempl' },
+        },
+        -- golangci-lint = {}, // install manually through mason
+        golangci_lint_ls = {},
+
         --
 
         lua_ls = {
@@ -558,6 +573,9 @@ require('lazy').setup({
             -- by the server configuration above. Useful when disabling
             -- certain features of an LSP (for example, turning off formatting for tsserver)
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+            --
+            -- server.filetypes = (servers[server_name] or {}).filetypes
+
             require('lspconfig')[server_name].setup(server)
           end,
         },
@@ -601,8 +619,11 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { 'prettierd', 'eslint_d' }, -- some raw js files does not have eslint hence prettierd for simple formatting (does not require prettier config file)
+        javascript = { 'prettierd', 'eslint_d' },
         typescript = { 'eslint_d' },
+        go = { 'golines', 'goimports', 'golangci', 'golangci_lint_ls', 'golangci-lint' },
+        html = { 'htmlbeautifier', 'htmlhint' },
+        -- tmpl = { 'htmlbeautifier', 'htmlhint' },
       },
     },
     -- config = function()
@@ -944,3 +965,4 @@ vim.keymap.set('n', 'x', '"_x')
 
 -- disable swapfile
 vim.opt.swapfile = false
+vim.cmd 'autocmd BufNewFile,BufRead *.templ setfiletype template'
