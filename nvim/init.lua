@@ -620,7 +620,7 @@ require('lazy').setup({
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         javascript = { 'prettierd', 'eslint_d' },
-        typescript = { 'eslint_d' },
+        typescript = { 'prettierd', 'eslint_d' },
         go = { 'golines', 'goimports', 'golangci', 'golangci_lint_ls', 'golangci-lint' },
         html = { 'htmlbeautifier', 'htmlhint' },
         -- tmpl = { 'htmlbeautifier', 'htmlhint' },
@@ -745,62 +745,69 @@ require('lazy').setup({
       }
     end,
   },
+  { -- You can easily change to a different colorscheme.
+    -- Change the name of the colorscheme plugin below, and then
+    -- change the command in the config to whatever the name of that colorscheme is.
+    --
+    -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+    'folke/tokyonight.nvim',
+    priority = 1000, -- Make sure to load this before all the other start plugins.
+    init = function()
+      -- Load the colorscheme here.
+      -- Like many other themes, this one has different styles, and you could load
+      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      vim.cmd.colorscheme 'tokyonight-night'
 
-  -- { -- You can easily change to a different colorscheme.
-  --   -- Change the name of the colorscheme plugin below, and then
-  --   -- change the command in the config to whatever the name of that colorscheme is.
-  --   --
-  --   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  --   'folke/tokyonight.nvim',
-  --   priority = 1000, -- Make sure to load this before all the other start plugins.
-  --   init = function()
-  --     -- Load the colorscheme here.
-  --     -- Like many other themes, this one has different styles, and you could load
-  --     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-  --     vim.cmd.colorscheme 'tokyonight-night'
-  --
-  --     -- You can configure highlights by doing something like:
-  --     vim.cmd.hi 'Comment gui=none'
-  --   end,
-  -- },
-  {
-    'craftzdog/solarized-osaka.nvim',
-    priority = 1000,
-    lazy = false,
-    config = function()
-      require('solarized-osaka').setup {
-        styles = {
-          functions = {},
-          sidebars = 'transparent',
-        },
-        transparent = true,
-        on_colors = function(colors)
-          colors.hint = colors.orange
-          colors.error = '#ff0000'
-        end,
-        on_highlights = function(hl, c)
-          local prompt = '#2d3149'
-          hl.TelescopeNormal = {
-            bg = c.bg_dark,
-            fg = c.fg_dark,
-          }
-          hl.TelescopeBorder = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopePreviewTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopeResultsTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-        end,
-      }
-      require('solarized-osaka').load()
+      -- You can configure highlights by doing something like:
+      vim.cmd.hi 'Comment gui=none'
     end,
   },
+  -- {
+  --   'ellisonleao/gruvbox.nvim',
+  --   priority = 1000,
+  --   init = function()
+  --     vim.cmd.colorscheme 'gruvbox'
+  --     vim.o.background = 'dark'
+  --   end,
+  -- },
+  -- {
+  --   'craftzdog/solarized-osaka.nvim',
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     require('solarized-osaka').setup {
+  --       styles = {
+  --         functions = {},
+  --         sidebars = 'transparent',
+  --       },
+  --       transparent = true,
+  --       on_colors = function(colors)
+  --         colors.hint = colors.orange
+  --         colors.error = '#ff0000'
+  --       end,
+  --       on_highlights = function(hl, c)
+  --         local prompt = '#2d3149'
+  --         hl.TelescopeNormal = {
+  --           bg = c.bg_dark,
+  --           fg = c.fg_dark,
+  --         }
+  --         hl.TelescopeBorder = {
+  --           bg = c.bg_dark,
+  --           fg = c.bg_dark,
+  --         }
+  --         hl.TelescopePreviewTitle = {
+  --           bg = c.bg_dark,
+  --           fg = c.bg_dark,
+  --         }
+  --         hl.TelescopeResultsTitle = {
+  --           bg = c.bg_dark,
+  --           fg = c.bg_dark,
+  --         }
+  --       end,
+  --     }
+  --     require('solarized-osaka').load()
+  --   end,
+  -- },
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
