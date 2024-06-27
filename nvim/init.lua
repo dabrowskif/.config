@@ -500,15 +500,34 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {
-          init_options = {
-            preferences = {
-              importModuleSpecifierPreference = 'relative',
-              importModuleSpecifierEnding = 'minimal',
-            },
-          },
-        },
+        -- tsserver = {
+        --   init_options = {
+        --     preferences = {
+        --       importModuleSpecifierPreference = 'relative',
+        --       importModuleSpecifierEnding = 'minimal',
+        --     },
+        --   },
+        -- },
         terraformls = {},
+        svelte = {
+          on_attach = function(client, bufnr)
+            vim.api.nvim_create_autocmd('BufWritePost', {
+              pattern = { '*.js', '*.ts' },
+              callback = function(ctx)
+                -- Here use ctx.match instead of ctx.file
+                client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.match })
+              end,
+            })
+          end,
+          -- on_attach = function(client)
+          --   vim.api.nvim_create_autocmd('BufWritePost', {
+          --     pattern = { '*.js', '*.ts' },
+          --     callback = function(ctx)
+          --       client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.file })
+          --     end,
+          --   })
+          -- end,
+        },
         eslint = {}, -- its LSP =  Due to the bug, install specific version of lsp to show diagnostics :MasonInstall eslint-lsp@4.8.0
         eslint_d = {}, -- its Formatter
         tflint = {},
@@ -516,9 +535,15 @@ require('lazy').setup({
         hadolint = {},
         markdownlint = {},
         prettierd = {},
+        -- golant
         gopls = {},
         goimports = {},
         templ = {},
+        -- golangci-lint = {}, // install manually through mason
+        golangci_lint_ls = {},
+        tailwindcss = {},
+
+        -- html
         htmlbeautifier = {
           filetypes = { 'template', 'gotempl' },
         },
@@ -528,11 +553,8 @@ require('lazy').setup({
         html = {
           filetypes = { 'template', 'gotempl' },
         },
-        -- golangci-lint = {}, // install manually through mason
-        golangci_lint_ls = {},
 
-        --
-
+        -- lua
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
@@ -602,10 +624,11 @@ require('lazy').setup({
         -- Disable "format_on_save lsp_fallback" for languages that don't
         -- have a well standardized coding style. You can add additional
         -- languages here or re-enable it for the disabled ones.
-        local disable_filetypes = { c = true, cpp = true }
+        -- local disable_filetypes = { c = true, cpp = true }
         return {
-          timeout_ms = 500,
-          lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+          timeout_ms = 3000,
+          lsp_fallback = true,
+          -- lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
       formatters_by_ft = {
@@ -616,11 +639,13 @@ require('lazy').setup({
         dockerfile = { 'hadolint' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
-        --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
+        --
         javascript = { 'prettierd', 'eslint_d' },
         typescript = { 'prettierd', 'eslint_d' },
+        -- typescript = { 'eslint_d' },
+        svelte = { 'prettierd', 'eslint_d' },
         go = { 'golines', 'goimports', 'golangci', 'golangci_lint_ls', 'golangci-lint' },
         html = { 'htmlbeautifier', 'htmlhint' },
         -- tmpl = { 'htmlbeautifier', 'htmlhint' },
@@ -756,7 +781,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-moon'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
