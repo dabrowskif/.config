@@ -1,3 +1,4 @@
+-- disable if not using tmux - allows navitaging between panes and nvim
 return {
   'christoomey/vim-tmux-navigator',
   cmd = {
