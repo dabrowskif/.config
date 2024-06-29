@@ -1,3 +1,4 @@
+-- Provides highlighting for TODO: comments
 return {
 	'folke/todo-comments.nvim',
 	event = 'VimEnter',

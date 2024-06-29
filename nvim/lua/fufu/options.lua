@@ -49,10 +49,6 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- TODO: check this one
--- Preview substitutions live, as you type!
--- vim.opt.inccommand = 'split'
-
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
@@ -61,4 +57,8 @@ vim.opt.scrolloff = 30
 
 -- Disable swapfile
 vim.opt.swapfile = false
+
+-- TODO: check this one
+-- Preview substitutions live, as you type!
+-- vim.opt.inccommand = 'split'
 

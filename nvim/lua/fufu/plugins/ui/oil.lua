@@ -3,17 +3,10 @@ return {
 	opts = {
 
 		lsp_file_methods = {
-			-- use_default_keymaps = false,
 			timeout_ms = 10000,
 			autosave_changes = true,
 		},
 		default_file_explorer = false,
-		keymaps = {
-			["<C-c>"] = false,
-			['<C-s>'] = false,
-			['<C-h>'] = false,
-			['<C-q>'] = 'actions.close',
-		},
 	},
 	dependencies = { 'nvim-tree/nvim-web-devicons' },
 	config = function(_, opts)

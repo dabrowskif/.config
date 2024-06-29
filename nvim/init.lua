@@ -12,22 +12,22 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- init vim spec
+-- Init vim spec
 require('fufu.keymaps')
 require('fufu.autocmds')
 require('fufu.options')
 
--- init lazy
+-- Init lazy
 require("lazy").setup({
 	spec = {
 		{ import = "fufu.plugins.coding" },
 		{ import = "fufu.plugins.git" },
-		-- { import = "custom.plugins.langs.go" },
-		-- { import = "custom.plugins.langs.ts" },
+		{ import = "fufu.plugins.langs.go" },
+		{ import = "fufu.plugins.langs.ts" },
 		{ import = "fufu.plugins.lsp" },
 		{ import = "fufu.plugins.ui" },
 		{ import = "fufu.plugins.utils" },
-		-- { import = "custom.plugins.wip" },
+		-- { import = "fufu.plugins.wip" },
 	},
 	defaults = {
 		lazy = false,
