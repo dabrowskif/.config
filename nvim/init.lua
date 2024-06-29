@@ -1,8 +1,7 @@
 -- WARN: Must be before everything
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
-
 
 -- Install lazyvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -13,9 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Init vim spec
-require('fufu.keymaps')
-require('fufu.autocmds')
-require('fufu.options')
+require("fufu.keymaps")
+require("fufu.autocmds")
+require("fufu.options")
 
 -- Init lazy
 require("lazy").setup({
@@ -27,14 +26,13 @@ require("lazy").setup({
 		{ import = "fufu.plugins.lsp" },
 		{ import = "fufu.plugins.ui" },
 		{ import = "fufu.plugins.utils" },
-		-- { import = "fufu.plugins.wip" },
 	},
 	defaults = {
 		lazy = false,
 		version = false,
 	},
 	checker = {
-		enabled = true
+		enabled = true,
 	},
 	performance = {
 		rtp = {
@@ -50,26 +48,24 @@ require("lazy").setup({
 			},
 		},
 	},
-}, 
-	{
-		ui = {
-			-- If you are using a Nerd Font: set icons to an empty table which will use the
-			-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-			icons = vim.g.have_nerd_font and {} or {
-				cmd = '⌘',
-				config = '🛠',
-				event = '📅',
-				ft = '📂',
-				init = '⚙',
-				keys = '🗝',
-				plugin = '🔌',
-				runtime = '💻',
-				require = '🌙',
-				source = '📄',
-				start = '🚀',
-				task = '📌',
-				lazy = '💤 ',
-			},
+}, {
+	ui = {
+		-- If you are using a Nerd Font: set icons to an empty table which will use the
+		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+		icons = vim.g.have_nerd_font and {} or {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
 		},
-	}
-)
+	},
+})
