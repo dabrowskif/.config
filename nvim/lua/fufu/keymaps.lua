@@ -44,7 +44,10 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Restart LSP
-vim.keymap.set("n", "<leader>vr", ":LspRestart<CR>", { desc = "Restart LSP" })
+vim.keymap.set("n", "<leader>vr", ":LspRestart<CR>", { desc = "Restart LSP", silent = true })
+
+-- Quit Neovim and save all
+vim.keymap.set("n", "<leader>vq", ":waq!<CR>", { desc = "Save all and quit Neovim", silent = true })
 
 -- Quit Neovim
-vim.keymap.set("n", "<leader>vq", ":wqa!<CR>", { desc = "Save all and quit Neovim" })
+vim.keymap.set("n", "<leader>vq", ":wqa!<CR>", { desc = "Save all and quit Neovim", silent = true })

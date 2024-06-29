@@ -1,4 +1,3 @@
--- for beautiful file rollback history
 return {
 	"mbbill/undotree",
 	config = function()
