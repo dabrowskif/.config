@@ -1,4 +1,3 @@
-
 # shellcheck shell=bash
 # Default Theme
 # If changes made here do not take effect, then try to re-create the tmux session to force reload.
@@ -17,7 +16,6 @@ fi
 
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-'235'}
 TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR:-'38'}
-
 
 TMUX_POWERLINE_SEG_AIR_COLOR=$(air_color)
 
@@ -59,24 +57,20 @@ ICON_CHARGING='⚡'
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
     TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-        # "tmux_session_info 18 149"
-        # "hostname 24 255"
-        # "lan_ip 33 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}"
         "tmux_session_info 38 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}"
         "hostname 235 38 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
         "lan_ip 235 38 ${TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD}"
-        # "pwd 240 251"
         "pwd 245 235"
     )
 fi
 
+
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
     TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-        # "now_playing 235 111"
-        "load 245 235"
+        # "tmux_mem_cpu_load_cust 52 234 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}"
+        "tmux_mem_cpu_load_custom 245 235"
         "battery 245 235 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
-        # "weather 111 223"
         "date_day 235 38 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}"
         "date 235 38 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
         "time 38 255 ${TMUX_POWERLINE_SEPARATOR_LEFT_BOLD}"
