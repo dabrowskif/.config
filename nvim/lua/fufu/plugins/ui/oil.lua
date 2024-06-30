@@ -6,6 +6,18 @@ return {
 			autosave_changes = true,
 		},
 		default_file_explorer = false,
+		keymaps = {
+			["-"] = false,
+			["_"] = false,
+			["<leader>op"] = {
+				"actions.parent",
+				desc = "[O]il goto [P]arent",
+			},
+			["<leader>oc"] = {
+				"actions.open_cwd",
+				desc = "[O]il goto [C]WD",
+			},
+		},
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function(_, opts)
