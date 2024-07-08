@@ -1,0 +1,89 @@
+# INFO: tests 
+snippet it "Test case"
+	it('${1}', async () => {
+		${0}
+	})
+snippet de "Description for test cases"
+	describe('${1}', async () => {
+		${0}
+	})
+snippet ite "Looped test cases"
+	it.each([
+		{ ${1} },
+	])('${2}', async ({ ${3} }) => {
+		${0}
+	});
+snippet dee "Looped description for test cases"
+	describe.each([
+		{ ${1} },
+	])('${2}', ({ ${3} }) => {
+		${0}
+	});
+
+# INFO: functions
+snippet fn "function"
+	function ${1}(${2:variable}:${3:unknown})${4} {
+		${0}
+	}
+snippet afn "async function"
+	async function ${1}(${2:variable}:${3:unknown})${4} {
+		${0}
+	}
+snippet arfn "async arrow function"
+	const ${1} = (${2:variable}:${3:unknown}) => {
+		${0}
+	}
+snippet aarfn "async arrow function"
+	const ${1} = async (${2:variable}:${3:unknown}) => {
+		${0}
+	}
+
+# INFO:ifs
+snippet if "if (condition) { ... }"
+	if (${1:true}) {
+		${0:${VISUAL}}
+	}
+snippet ife "if (condition) { ... } else { ... }"
+	if (${1:true}) {
+		${0:${VISUAL}}
+	} else {
+		${2}
+	}
+
+# INFO: fors
+snippet for "for loop"
+	for (let ${1:i} = 0, ${2:len} = ${3:ARRAY.length} - 1; $1++) {
+		${0:${VISUAL}}
+	}
+snippet foro "for of loop"
+	for (const ${1:prop} of ${2:object}) {
+		${0:$1}
+	}
+snippet fori "for in loop"
+	for (let ${1:prop} in ${2:object}) {
+		${0:$2[$1]}
+	}
+
+# INFO: docs
+snippet doc "documentation for tn"
+	/**
+	 * ${0:description}
+	 */
+snippet inf "info description"
+	// INFO: ${0:description}
+snippet todo "todo description"
+	// TODO: ${0:description}
+snippet fix "fixme description"
+	// FIXME: ${0:description}
+
+# INFO: advanced
+snippet mf
+	const ${1}: ${2: unknown}[] = []
+	for (let ${3:i} = 0, i < ${4:ARRAY.length} - 1; ${3}++) {
+		let ${5}: ${2};
+		${0}
+		${1}.push(${5})
+	}
+
+# INFO: NestJS
+# TODO:
