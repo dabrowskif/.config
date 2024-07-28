@@ -6,8 +6,21 @@
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	group = vim.api.nvim_create_augroup("HighlightOnYank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
+
+-- Auto-import and format TypeScript files on save
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	group = vim.api.nvim_create_augroup("TS_add_missing_imports", { clear = true }),
+-- 	pattern = { "*.ts" },
+-- 	callback = function()
+-- 		vim.lsp.buf.code_action({
+-- 			apply = true,
+-- 			context = { only = { "source.addMissingImports.ts" } },
+-- 		})
+-- 		vim.cmd("write")
+-- 	end,
+-- })

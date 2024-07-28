@@ -13,9 +13,9 @@ return {
 	},
 	opts = {
 		notify_on_error = true,
-		format_on_save = function(bufnr)
+		format_on_save = function()
 			return {
-				timeout_ms = 3000,
+				timeout_ms = 2000,
 				lsp_fallback = true,
 			}
 		end,
@@ -33,6 +33,7 @@ return {
 			tmpl = { "htmlbeautifier", "htmlhint" },
 		},
 	},
+	-- leftover for invoking EslintFixAll
 	-- config = function()
 	-- vim.api.nvim_create_autocmd('BufWritePre', {
 	--   group = vim.api.nvim_create_augroup('EslintFixAll', { clear = true }),

@@ -1,6 +1,5 @@
 return {
 	"neovim/nvim-lspconfig",
-
 	dependencies = {
 		-- Automatically install LSPs and related tools to stdpath for Neovim
 		{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
@@ -8,14 +7,12 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 
 		-- Useful status updates for LSP.
-		-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 		{ "j-hui/fidget.nvim", opts = {} },
 
 		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
 		{ "folke/lazydev.nvim", opts = {} },
 	},
-
 	config = function()
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
@@ -102,39 +99,30 @@ return {
 		--       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 		--       --  - settings (table): Override the default settings passed when initializing the server.
 		--       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-		--
 		-- INFO: ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 		local servers = {
-			-- Some languages (like typescript) have entire language plugins that can be useful:
-			--    https://github.com/pmizio/typescript-tools.nvim
-			-- tsserver = {
-			--   init_options = {
-			--     preferences = {
-			--       importModuleSpecifierPreference = 'relative',
-			--       importModuleSpecifierEnding = 'minimal',
-			--     },
-			--   },
-			-- },
+			tsserver = {
+				capabilities = {
+					documentFormattingProvider = false,
+				},
+				init_options = {
+					preferences = {
+						importModuleSpecifierPreference = "relative",
+						importModuleSpecifierEnding = "minimal",
+						includePackageJsonAutoImports = true,
+					},
+				},
+			},
 			terraformls = {},
 			svelte = {
-				-- BUG: not working- svelte not updating on ts file change
-				-- on_attach = function(client, bufnr)
-				-- 	vim.api.nvim_create_autocmd('BufWritePost', {
-				-- 		pattern = { '*.js', '*.ts' },
-				-- 		callback = function(ctx)
-				-- 			-- Here use ctx.match instead of ctx.file
-				-- 			client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.match })
-				-- 		end,
-				-- 	})
-				-- end,
-				-- on_attach = function(client)
-				--   vim.api.nvim_create_autocmd('BufWritePost', {
-				--     pattern = { '*.js', '*.ts' },
-				--     callback = function(ctx)
-				--       client.notify('$/onDidChangeTsOrJsFile', { uri = ctx.file })
-				--     end,
-				--   })
-				-- end,
+				on_attach = function(client)
+					vim.api.nvim_create_autocmd("BufWritePost", {
+						pattern = { "*.js", "*.ts" },
+						callback = function(ctx)
+							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+						end,
+					})
+				end,
 			},
 			-- eslint = {}, -- its LSP =  Due to the bug, install specific version of lsp to show diagnostics :MasonInstall eslint-lsp@4.8.0
 			eslint = {}, -- lsp
@@ -144,13 +132,12 @@ return {
 			hadolint = {},
 			markdownlint = {},
 			prettierd = {},
-			-- golant
+			-- golang
 			gopls = {},
 			goimports = {},
 			templ = {},
 			-- golangci-lint = {}, // install manually through :Mason
 			golangci_lint_ls = {},
-
 			-- html
 			htmlbeautifier = {
 				filetypes = { "template", "gotempl" },
@@ -161,25 +148,21 @@ return {
 			html = {
 				filetypes = { "template", "gotempl" },
 			},
-			tailwindcss = {},
-
-			-- lua
+			tailwindcss = {
+				filetypes = { "svelte" },
+			},
+			--lua
 			lua_ls = {
-				-- cmd = {...},
-				-- filetypes = { ...},
-				-- capabilities = {},
 				settings = {
 					Lua = {
 						completion = {
 							callSnippet = "Replace",
 						},
-						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
 						diagnostics = { disable = { "missing-fields" } },
 					},
 				},
 			},
 		}
-
 		require("mason").setup()
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {

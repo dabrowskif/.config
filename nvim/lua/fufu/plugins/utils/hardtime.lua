@@ -1,4 +1,4 @@
--- Enable to learn good behaviors :)
+-- enable to learn good behaviors
 return {
 	-- "m4xshen/hardtime.nvim",
 	-- dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },

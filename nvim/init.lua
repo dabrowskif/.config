@@ -33,7 +33,7 @@ require("lazy").setup({
 		version = false,
 	},
 	checker = {
-		enabled = true,
+		enabled = false,
 	},
 	performance = {
 		rtp = {

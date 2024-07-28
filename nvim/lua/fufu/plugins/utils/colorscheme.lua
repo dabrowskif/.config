@@ -8,8 +8,13 @@ return {
 	init = function()
 		require("onedark").setup({
 			style = "deep",
+			highlights = {
+				["LineNr"] = { fg = "$orange" },
+				["CursorLineNr"] = { fg = "$blue" },
+			},
 		})
 		require("onedark").load()
+
 		-- setup for tokyonight
 		-- vim.cmd.colorscheme("tokyonight-moon") -- 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 		-- vim.cmd.hi("Comment gui=none") -- configure highlights

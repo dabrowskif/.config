@@ -26,7 +26,7 @@ vim.keymap.set("n", "x", '"_x')
 -- is not what someone will guess without a bit more experience.
 -- FIXME: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier.
 --  See `:help wincmd` for a list of all window commands
@@ -38,16 +38,14 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- INFO: [[ Basic Keymaps ]]
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [d]iagnostic message" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [d]iagnostic message" })
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [e]rror messages" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [q]uickfix list" })
 
--- Restart LSP
+-- some helpers
 vim.keymap.set("n", "<leader>vr", ":LspRestart<CR>", { desc = "Restart LSP", silent = true })
-
--- Quit Neovim and save all
-vim.keymap.set("n", "<leader>vq", ":waq!<CR>", { desc = "Save all and quit Neovim", silent = true })
-
--- Quit Neovim
-vim.keymap.set("n", "<leader>vq", ":wqa!<CR>", { desc = "Save all and quit Neovim", silent = true })
+vim.keymap.set("n", "<leader>vq", ":wqa!<CR>", { desc = "Save all and [q]uit Neovim", silent = true })
+-- vim.keymap.set("n", "<leader>vs", ":wa!<CR>", { desc = "Save all files", silent = true })
+vim.keymap.set("n", "<leader>vch", ":checkhealth ", { desc = "[C]heck[h]ealth of specific plugin" })
+vim.keymap.set("n", "<leader>vh", ":help ", { desc = "[h]elp of specific plugin" })

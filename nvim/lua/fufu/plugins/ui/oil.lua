@@ -1,22 +1,30 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {
-		lsp_file_methods = {
-			timeout_ms = 10000,
-			autosave_changes = true,
-		},
+		-- lsp_file_methods = {
+		-- 	timeout_ms = 10000,
+		-- 	-- autosave_changes = true,
+		-- },
 		default_file_explorer = false,
+		watch_for_changes = false,
 		keymaps = {
-			["-"] = false,
-			["_"] = false,
-			["<leader>op"] = {
-				"actions.parent",
-				desc = "[O]il goto [P]arent",
-			},
-			["<leader>oc"] = {
+			["T"] = "actions.parent",
+			["t"] = "actions.select",
+			["<leader>ogr"] = {
 				"actions.open_cwd",
-				desc = "[O]il goto [C]WD",
+				desc = "[o]il [g]oto [c]wd",
 			},
+			["<leader>oth"] = {
+				"actions.toggle_hidden",
+				desc = "[o]il [t]oggle [h]idden",
+			},
+			["<C-r>"] = "actions.refresh",
+		},
+
+		use_default_keymaps = true,
+		float = {
+			max_width = 100,
+			max_height = 25,
 		},
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
