@@ -19,6 +19,7 @@ require("fufu.options")
 -- Init lazy
 require("lazy").setup({
 	spec = {
+		{ import = "fufu.plugins.ai" },
 		{ import = "fufu.plugins.coding" },
 		{ import = "fufu.plugins.debugger" },
 		{ import = "fufu.plugins.git" },
