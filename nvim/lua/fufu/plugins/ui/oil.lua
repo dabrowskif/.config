@@ -1,10 +1,10 @@
 return {
 	"stevearc/oil.nvim",
 	opts = {
-		-- lsp_file_methods = {
-		-- 	timeout_ms = 10000,
-		-- 	-- autosave_changes = true,
-		-- },
+		lsp_file_methods = {
+			timeout_ms = 10000,
+			-- autosave_changes = true,
+		},
 		default_file_explorer = false,
 		watch_for_changes = false,
 		keymaps = {

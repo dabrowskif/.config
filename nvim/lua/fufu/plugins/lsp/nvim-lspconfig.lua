@@ -126,9 +126,9 @@ return {
 			},
 			-- eslint = {}, -- its LSP =  Due to the bug, install specific version of lsp to show diagnostics :MasonInstall eslint-lsp@4.8.0
 			eslint = {}, -- lsp
-			eslint_d = {}, -- formatter
 			tflint = {},
 			jsonlint = {},
+			jsonls = {},
 			hadolint = {},
 			markdownlint = {},
 			prettierd = {},
