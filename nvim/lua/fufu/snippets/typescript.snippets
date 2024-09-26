@@ -3,8 +3,8 @@ snippet it "Test case"
 	it('${1}', async () => {
 		${0}
 	})
-snippet de "Description for test cases"
-	describe('${1}', async () => {
+snippet desc "Description for test cases"
+	describe('${1}', () => {
 		${0}
 	})
 snippet ite "Looped test cases"
@@ -13,7 +13,7 @@ snippet ite "Looped test cases"
 	])('${2}', async ({ ${3} }) => {
 		${0}
 	});
-snippet dee "Looped description for test cases"
+snippet desce "Looped description for test cases"
 	describe.each([
 		{ ${1} },
 	])('${2}', ({ ${3} }) => {
@@ -29,7 +29,7 @@ snippet afn "async function"
 	async function ${1}(${2:variable}:${3:unknown})${4} {
 		${0}
 	}
-snippet arfn "async arrow function"
+snippet arfn "arrow function"
 	const ${1} = (${2:variable}:${3:unknown}) => {
 		${0}
 	}
@@ -64,7 +64,7 @@ snippet fori "for in loop"
 		${0:$2[$1]}
 	}
 
-# INFO: docs
+# INFO: utils
 snippet doc "documentation for tn"
 	/**
 	 * ${0:description}
@@ -75,15 +75,15 @@ snippet todo "todo description"
 	// TODO: ${0:description}
 snippet fix "fixme description"
 	// FIXME: ${0:description}
+snippet tsee "ts ignore"
+	// @ts-expect-error - ${0:description}
 
 # INFO: advanced
-snippet mf
+snippet mapfind
 	const ${1}: ${2: unknown}[] = []
-	for (let ${3:i} = 0, i < ${4:ARRAY.length} - 1; ${3}++) {
+	for (let ${3:i} = 0; i < ${4:ARRAY.length} - 1; ${3}++) {
 		let ${5}: ${2};
 		${0}
 		${1}.push(${5})
 	}
 
-# INFO: NestJS
-# TODO:

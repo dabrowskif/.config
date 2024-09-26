@@ -113,7 +113,6 @@ return {
 					},
 				},
 			},
-			terraformls = {},
 			svelte = {
 				on_attach = function(client)
 					vim.api.nvim_create_autocmd("BufWritePost", {
@@ -126,12 +125,21 @@ return {
 			},
 			-- eslint = {}, -- its LSP =  Due to the bug, install specific version of lsp to show diagnostics :MasonInstall eslint-lsp@4.8.0
 			eslint = {}, -- lsp
+			prettierd = {},
+			-- terraform
 			tflint = {},
+			terraformls = {},
+			-- json
 			jsonlint = {},
 			jsonls = {},
-			hadolint = {},
+			-- Docker
+			hadolint = {
+				filetypes = { "dockerfile" },
+			},
+			dockerls = {},
+			docker_compose_language_service = {},
+			-- .md
 			markdownlint = {},
-			prettierd = {},
 			-- golang
 			gopls = {},
 			goimports = {},
