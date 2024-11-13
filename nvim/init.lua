@@ -3,52 +3,32 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
--- Install lazyvim
+-- See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	-- stylua: ignore
-	vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
-end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		error("Error cloning lazy.nvim:\n" .. out)
+	end
+end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- Init vim spec
 require("fufu.keymaps")
 require("fufu.autocmds")
 require("fufu.options")
 
--- Init lazy
 require("lazy").setup({
 	spec = {
-		{ import = "fufu.plugins.ai" },
-		{ import = "fufu.plugins.coding" },
-		{ import = "fufu.plugins.debugger" },
+
+		{ import = "fufu.plugins.core" },
 		{ import = "fufu.plugins.git" },
-		{ import = "fufu.plugins.langs.go" },
-		{ import = "fufu.plugins.langs.ts" },
-		{ import = "fufu.plugins.lsp" },
 		{ import = "fufu.plugins.ui" },
+		{ import = "fufu.plugins.debugger" },
 		{ import = "fufu.plugins.utils" },
-	},
-	defaults = {
-		lazy = false,
-		version = false,
-	},
-	checker = {
-		enabled = false,
-	},
-	performance = {
-		rtp = {
-			disabled_plugins = {
-				"gzip",
-				-- "matchit",
-				-- "matchparen",
-				"netrwPlugin",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
+		-- { import = "fufu.plugins.under-testing" },
+		-- { import = "fufu.plugins.langs.go" },
+		{ import = "fufu.plugins.langs.ts" },
 	},
 }, {
 	ui = {

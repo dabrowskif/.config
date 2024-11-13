@@ -5,7 +5,7 @@ return {
 			timeout_ms = 10000,
 			autosave_changes = true,
 		},
-		default_file_explorer = false,
+		default_file_explorer = true,
 		watch_for_changes = false,
 		keymaps = {
 			["T"] = "actions.parent",

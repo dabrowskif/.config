@@ -1,9 +1,6 @@
 -- INFO: [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
+-- See `:help lua-guide-autocommands`
 
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("HighlightOnYank", { clear = true }),
@@ -12,15 +9,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Auto-import and format TypeScript files on save
 -- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	group = vim.api.nvim_create_augroup("TS_add_missing_imports", { clear = true }),
--- 	pattern = { "*.ts" },
--- 	callback = function()
--- 		vim.lsp.buf.code_action({
--- 			apply = true,
--- 			context = { only = { "source.addMissingImports.ts" } },
--- 		})
--- 		vim.cmd("write")
--- 	end,
+-- 	group = vim.api.nvim_create_augroup("EslintFixAll", { clear = true }),
+-- 	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js" },
+-- 	command = "silent! EslintFixAll",
 -- })
