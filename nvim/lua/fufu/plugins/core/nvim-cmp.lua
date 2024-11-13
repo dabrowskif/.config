@@ -11,6 +11,7 @@ return {
 				return "make install_jsregexp"
 			end)(),
 			dependencies = {
+				-- },
 				{
 					"rafamadriz/friendly-snippets",
 					config = function()
@@ -27,7 +28,7 @@ return {
 		"hrsh7th/cmp-path",
 	},
 	config = function()
-		-- INFO: `:help cmp`
+		-- See `:help cmp`
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		luasnip.config.setup({})
@@ -40,7 +41,8 @@ return {
 			},
 			completion = { completeopt = "menu,menuone,noinsert" },
 
-			-- INFO: `:help ins-completion`
+			-- For an understanding of why these mappings were
+			-- chosen, you will need to read `:help ins-completion`
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -48,6 +50,7 @@ return {
 				["<C-f>"] = cmp.mapping.scroll_docs(4),
 				["<C-e>"] = cmp.mapping.confirm({ select = true }),
 				["<C-Space>"] = cmp.mapping.complete({}),
+
 				["<C-l>"] = cmp.mapping(function()
 					if luasnip.expand_or_locally_jumpable() then
 						luasnip.expand_or_jump()
@@ -58,10 +61,15 @@ return {
 						luasnip.jump(-1)
 					end
 				end, { "i", "s" }),
+
 				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 			}),
 			sources = {
+				{
+					name = "lazydev",
+					group_index = 0,
+				},
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },

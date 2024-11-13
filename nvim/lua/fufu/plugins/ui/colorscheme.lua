@@ -1,7 +1,7 @@
 return {
 	"navarasu/onedark.nvim",
 	--[[ 	"folke/tokyonight.nvim", ]]
-	-- 'ellisonleao/gruvbox.nvim',
+	-- "ellisonleao/gruvbox.nvim",
 	-- "craftzdog/solarized-osaka.nvim",
 	priority = 1000,
 	lazy = false,
@@ -20,8 +20,8 @@ return {
 		-- vim.cmd.hi("Comment gui=none") -- configure highlights
 
 		-- setup for gruvbox
-		--     vim.cmd.colorscheme 'gruvbox'
-		--     vim.o.background = 'dark'
+		-- vim.cmd.colorscheme("gruvbox")
+		-- vim.o.background = "dark"
 
 		-- setup fow solarized-osaka
 		-- require("solarized-osaka").setup({
