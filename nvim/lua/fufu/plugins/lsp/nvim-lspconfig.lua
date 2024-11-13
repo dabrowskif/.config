@@ -127,8 +127,12 @@ return {
 			eslint = {}, -- lsp
 			prettierd = {},
 			-- terraform
-			tflint = {},
-			terraformls = {},
+			tflint = {
+				-- filetypes = { "terraform", "terraform-vars" },
+			},
+			terraformls = {
+				-- filetypes = { "terraform", "terraform-vars" },
+			},
 			-- json
 			jsonlint = {},
 			jsonls = {},
@@ -159,6 +163,8 @@ return {
 			tailwindcss = {
 				filetypes = { "svelte" },
 			},
+			--bash
+			bashls = {},
 			--lua
 			lua_ls = {
 				settings = {
