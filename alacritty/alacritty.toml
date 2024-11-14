@@ -1,16 +1,13 @@
+[general]
 import = [
     "~/.config/alacritty/themes/themes/tokyo-night.toml"
 ]
 
 [env]
-TERM = "xterm-256color"
+# TERM = "xterm-256color"
 decorations = "Buttonless"
 
 [font]
-normal.family = "MesloLGS Nerd Font Mono"
+normal.family = "MesloLGS NF"
+size = 14
 
-#regular
-size = 16
-
-#for video
-# size = 35.0
