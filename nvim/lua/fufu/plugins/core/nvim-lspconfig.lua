@@ -71,11 +71,10 @@ return {
 			-- js/ts/html
 			eslint = {},
 			prettierd = {},
-			tailwindcss = {
-				-- filetypes = { "svelte" },
-			},
+			tailwindcss = {},
 			svelte = {},
 			astro = {},
+
 			-- cicd
 			tflint = {},
 			terraformls = {},
