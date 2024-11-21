@@ -24,7 +24,7 @@ require("lazy").setup({
 		{ import = "fufu.plugins.core" },
 		{ import = "fufu.plugins.git" },
 		{ import = "fufu.plugins.ui" },
-		{ import = "fufu.plugins.debugger" },
+		-- { import = "fufu.plugins.debugger" },
 		{ import = "fufu.plugins.utils" },
 		-- { import = "fufu.plugins.under-testing" },
 		-- { import = "fufu.plugins.langs.go" },

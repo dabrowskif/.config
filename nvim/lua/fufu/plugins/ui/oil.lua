@@ -8,8 +8,6 @@ return {
 		default_file_explorer = true,
 		watch_for_changes = false,
 		keymaps = {
-			-- ["T"] = "actions.parent",
-			-- ["t"] = "actions.select",
 			["<leader>or"] = {
 				"actions.open_cwd",
 				desc = "[o]il goto project [r]oot",

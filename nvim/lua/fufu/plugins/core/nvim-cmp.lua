@@ -11,7 +11,6 @@ return {
 				return "make install_jsregexp"
 			end)(),
 			dependencies = {
-				-- },
 				{
 					"rafamadriz/friendly-snippets",
 					config = function()
@@ -28,7 +27,6 @@ return {
 		"hrsh7th/cmp-path",
 	},
 	config = function()
-		-- See `:help cmp`
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
 		luasnip.config.setup({})
@@ -43,6 +41,8 @@ return {
 
 			-- For an understanding of why these mappings were
 			-- chosen, you will need to read `:help ins-completion`
+			-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
+			--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 			mapping = cmp.mapping.preset.insert({
 				["<C-n>"] = cmp.mapping.select_next_item(),
 				["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -61,9 +61,6 @@ return {
 						luasnip.jump(-1)
 					end
 				end, { "i", "s" }),
-
-				-- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 			}),
 			sources = {
 				{

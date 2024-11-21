@@ -1,19 +1,22 @@
 return {
-	"navarasu/onedark.nvim",
+	-- "navarasu/onedark.nvim",
 	--[[ 	"folke/tokyonight.nvim", ]]
 	-- "ellisonleao/gruvbox.nvim",
 	-- "craftzdog/solarized-osaka.nvim",
+	"catppuccin/nvim",
+	name = "catppuccin",
+
 	priority = 1000,
 	lazy = false,
 	init = function()
-		require("onedark").setup({
-			style = "deep",
-			highlights = {
-				["LineNr"] = { fg = "$orange" },
-				["CursorLineNr"] = { fg = "$blue" },
-			},
-		})
-		require("onedark").load()
+		-- require("onedark").setup({
+		-- 	style = "deep",
+		-- 	highlights = {
+		-- 		["LineNr"] = { fg = "$orange" },
+		-- 		["CursorLineNr"] = { fg = "$blue" },
+		-- 	},
+		-- })
+		-- require("onedark").load()
 
 		-- setup for tokyonight
 		-- vim.cmd.colorscheme("tokyonight-moon") -- 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
@@ -23,7 +26,7 @@ return {
 		-- vim.cmd.colorscheme("gruvbox")
 		-- vim.o.background = "dark"
 
-		-- setup fow solarized-osaka
+		-- setup for solarized-osaka
 		-- require("solarized-osaka").setup({
 		-- 	styles = {
 		-- 		functions = {},
@@ -55,5 +58,11 @@ return {
 		-- 	end,
 		-- })
 		-- require("solarized-osaka").load()
+
+		-- catppuccin
+		require("catppuccin").setup({
+			flavour = "mocha", -- latte, frappe, macchiato, mocha
+		})
+		vim.cmd.colorscheme("catppuccin")
 	end,
 }

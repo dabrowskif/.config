@@ -9,7 +9,8 @@ return {
 				require("conform").format({ async = true, lsp_format = "fallback" })
 
 				local filetype = vim.bo.filetype
-				if filetype == "javascript" or filetype == "typescript" then
+				local eslintFixableFiletypes = { "javascript", "typescript", "svelte", "astro" }
+				if eslintFixableFiletypes[filetype] ~= nil then
 					vim.cmd("silent! EslintFixAll")
 				end
 			end,
@@ -32,10 +33,5 @@ return {
 				typescript = { "prettierd" },
 			},
 		})
-		-- vim.api.nvim_create_autocmd("BufWritePre", {
-		-- 	group = vim.api.nvim_create_augroup("EslintFixAll", { clear = true }),
-		-- 	pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", ".svelte", ".astro" },
-		-- 	command = "silent! EslintFixAll",
-		-- })
 	end,
 }

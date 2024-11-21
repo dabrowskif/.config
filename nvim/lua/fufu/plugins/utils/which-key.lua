@@ -35,17 +35,15 @@ return {
 				F12 = "<F12>",
 			},
 		},
-
-		-- Document existing key chains
-		-- spec = {
-		--   { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-		--   { '<leader>d', group = '[D]ocument' },
-		--   { '<leader>r', group = '[R]ename' },
-		--   { '<leader>s', group = '[S]earch' },
-		--   { '<leader>w', group = '[W]orkspace' },
-		--   { '<leader>t', group = '[T]oggle' },
-		--   { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
-		-- },
+		spec = {
+			{ "<leader>c", group = "[C]ode", mode = { "n", "x" } },
+			{ "<leader>d", group = "[D]ocument" },
+			{ "<leader>r", group = "[R]ename" },
+			{ "<leader>s", group = "[S]earch" },
+			{ "<leader>w", group = "[W]orkspace" },
+			{ "<leader>t", group = "[T]oggle" },
+			{ "<leader>v", group = "[V]im helpers" },
+		},
 	},
 }
 
@@ -67,7 +65,6 @@ return {
 -- 			{ "<leader>s_", hidden = true },
 -- 			{ "<leader>t", group = "[T]oggle" },
 -- 			{ "<leader>t_", hidden = true },
--- 			{ "<leader>v", group = "Custom helpers" },
 -- 			{ "<leader>v_", hidden = true },
 -- 			{ "<leader>w", group = "[W]orkspace" },
 -- 			{ "<leader>w_", hidden = true },

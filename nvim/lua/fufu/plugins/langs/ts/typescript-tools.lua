@@ -4,7 +4,7 @@ return {
 	opts = {
 		settings = {
 			expose_as_code_action = "all",
-			tsserver_file_preferences = function(ft)
+			tsserver_file_preferences = function()
 				return {
 					importModuleSpecifierPreference = "relative",
 					includeInlayParameterNameHints = "all",
@@ -12,7 +12,7 @@ return {
 					quotePreference = "auto",
 				}
 			end,
-			tsserver_format_options = function(ft)
+			tsserver_format_options = function()
 				return {
 					allowIncompleteCompletions = false,
 					allowRenameOfImportPath = false,
