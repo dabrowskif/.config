@@ -1,0 +1,169 @@
+{
+  "Test Case": {
+    "prefix": "it",
+    "body": [
+      "it('${1}', async () => {",
+      "  ${0}",
+      "})"
+    ],
+    "description": "Creates a Jest test case."
+  },
+  "Description for test cases": {
+    "prefix": "desc",
+    "body": [
+      "describe('${1}', () => {",
+      "  ${0}",
+      "})"
+    ],
+    "description": "Creates a Jest describe block."
+  },
+  "Looped Test Cases": {
+    "prefix": "ite",
+    "body": [
+      "it.each([",
+      "  { ${1} },",
+      "])('${2}', async ({ ${3} }) => {",
+      "  ${0}",
+      "});"
+    ],
+    "description": "Creates a Jest `it.each` block."
+  },
+  "Looped Description for Test Cases": {
+    "prefix": "desce",
+    "body": [
+      "describe.each([",
+      "  { ${1} },",
+      "])('${2}', ({ ${3} }) => {",
+      "  ${0}",
+      "});"
+    ],
+    "description": "Creates a Jest `describe.each` block."
+  },
+  "Function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1}(${2:variable}:${3:unknown})${4} {",
+      "  ${0}",
+      "}"
+    ],
+    "description": "Creates a standard function."
+  },
+  "Async Function": {
+    "prefix": "afn",
+    "body": [
+      "async function ${1}(${2:variable}:${3:unknown})${4} {",
+      "  ${0}",
+      "}"
+    ],
+    "description": "Creates an async function."
+  },
+  "Arrow Function": {
+    "prefix": "arfn",
+    "body": [
+      "const ${1} = (${2:variable}:${3:unknown}) => {",
+      "  ${0}",
+      "}"
+    ],
+    "description": "Creates an arrow function."
+  },
+  "Async Arrow Function": {
+    "prefix": "aarfn",
+    "body": [
+      "const ${1} = async (${2:variable}:${3:unknown}) => {",
+      "  ${0}",
+      "}"
+    ],
+    "description": "Creates an async arrow function."
+  },
+  "If Statement": {
+    "prefix": "if",
+    "body": [
+      "if (${1:true}) {",
+      "  ${0:${VISUAL}}",
+      "}"
+    ],
+    "description": "Creates an if statement."
+  },
+  "If-Else Statement": {
+    "prefix": "ife",
+    "body": [
+      "if (${1:true}) {",
+      "  ${0:${VISUAL}}",
+      "} else {",
+      "  ${2}",
+      "}"
+    ],
+    "description": "Creates an if-else statement."
+  },
+  "For Loop": {
+    "prefix": "for",
+    "body": [
+      "for (let ${1:i} = 0; ${1:i} < ${3:ARRAY.length} - 1; $1++) {",
+      "  ${0:${VISUAL}}",
+      "}"
+    ],
+    "description": "Creates a for loop."
+  },
+  "For-Of Loop": {
+    "prefix": "foro",
+    "body": [
+      "for (const ${1:prop} of ${2:object}) {",
+      "  ${0:$1}",
+      "}"
+    ],
+    "description": "Creates a for-of loop."
+  },
+  "For-In Loop": {
+    "prefix": "fori",
+    "body": [
+      "for (let ${1:prop} in ${2:object}) {",
+      "  ${0:$2[$1]}",
+      "}"
+    ],
+    "description": "Creates a for-in loop."
+  },
+  "Documentation Comment": {
+    "prefix": "doc",
+    "body": [
+      "/**",
+      " * ${0:description}",
+      " */"
+    ],
+    "description": "Creates a documentation comment."
+  },
+  "Info Comment": {
+    "prefix": "info",
+    "body": [
+      "// INFO: ${0:description}"
+    ],
+    "description": "Creates an info comment."
+  },
+  "TODO Comment": {
+    "prefix": "todo",
+    "body": [
+      "// TODO: ${0:description}"
+    ],
+    "description": "Creates a TODO comment."
+  },
+  "FIXME Comment": {
+    "prefix": "fix",
+    "body": [
+      "// FIXME: ${0:description}"
+    ],
+    "description": "Creates a FIXME comment."
+  },
+  "TS-Expect-Error": {
+    "prefix": "tsee",
+    "body": [
+      "// @ts-expect-error - ${0:description}"
+    ],
+    "description": "Adds a @ts-expect-error comment."
+  },
+  "Console Log": {
+    "prefix": "cl",
+    "body": [
+      "console.log(${0:text})"
+    ],
+    "description": "Creates a console.log statement."
+  }
+}
