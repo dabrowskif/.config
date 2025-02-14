@@ -82,6 +82,8 @@ return {
 			dockerls = {},
 			docker_compose_language_service = {},
 
+			-- ts_ls = {},
+
 			-- golang
 			gopls = {},
 			goimports = {},

@@ -69,7 +69,7 @@ snippet doc "documentation for tn"
 	/**
 	 * ${0:description}
 	 */
-snippet inf "info description"
+snippet info "info description"
 	// INFO: ${0:description}
 snippet todo "todo description"
 	// TODO: ${0:description}
@@ -79,13 +79,3 @@ snippet tsee "ts ignore"
 	// @ts-expect-error - ${0:description}
 snippet cl "console.log"
 	console.log(${0:text})
-
-# INFO: advanced
-snippet mapfind
-	const ${1}: ${2: unknown}[] = []
-	for (let ${3:i} = 0; i < ${4:ARRAY.length} - 1; ${3}++) {
-		let ${5}: ${2};
-		${0}
-		${1}.push(${5})
-	}
-

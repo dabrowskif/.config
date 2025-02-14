@@ -1,3 +1,10 @@
-vim.keymap.set("n", "<leader>cia", ":TSToolsAddMissingImports<CR>", { desc = "[TS] - [c]ode aciton - [i]mport [a]ll" })
-vim.keymap.set("n", "<leader>cfa", ":silent! EslintFixAll<CR>", { desc = "[TS] - fix all esling errors" })
+vim.keymap.set("n", "<leader>ci", function()
+	vim.cmd("TSToolsAddMissingImports")
+	vim.cmd("TSToolsRemoveUnusedImports")
+end, { desc = "[TS] - [c]ode - [o]rganize imports" })
+
+vim.keymap.set("n", "<leader>ce", function()
+	vim.cmd("silent! :EslintFixAll")
+end, { desc = "[TS] - [c]ode - fix [e]slint errors" })
+
 return {}

@@ -29,5 +29,5 @@ vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 
-vim.g.oaded_netrw = 1
+vim.g.oaded_netrw = 1 -- FIXME: typo, check what happens if i fix it
 vim.g.loaded_netrwPlugin = 1

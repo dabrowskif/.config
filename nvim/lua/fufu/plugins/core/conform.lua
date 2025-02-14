@@ -7,12 +7,14 @@ return {
 			"<leader>f",
 			function()
 				require("conform").format({ async = true, lsp_format = "fallback" })
-
-				local filetype = vim.bo.filetype
-				local eslintFixableFiletypes = { "javascript", "typescript", "svelte", "astro" }
-				if eslintFixableFiletypes[filetype] ~= nil then
-					vim.cmd("silent! EslintFixAll")
-				end
+				--
+				-- local filetype = vim.bo.filetype
+				-- local eslintFixableFiletypes = { "javascript", "typescript", "svelte", "astro" }
+				-- print(filetype)
+				-- print(eslintFixableFiletypes[filetype])
+				-- if eslintFixableFiletypes[filetype] ~= nil then
+				-- 	vim.cmd("silent! EslintFixAll")
+				-- end
 			end,
 			mode = "",
 			desc = "[F]ormat buffer",
