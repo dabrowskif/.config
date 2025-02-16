@@ -1,9 +1,10 @@
 return {
 	"kdheepak/lazygit.nvim",
+	lazy = true,
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 	},
-	config = function()
-		vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { desc = "Open lazygit" })
-	end,
+	keys = {
+		{ "<leader>gg", "<cmd>LazyGit<CR>", desc = "Open Lazygit" },
+	},
 }

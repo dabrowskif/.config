@@ -18,36 +18,32 @@ require("fufu.keymaps")
 require("fufu.autocmds")
 require("fufu.options")
 
-require("lazy").setup({
-	spec = {
+local spec = {
+	{ import = "fufu.plugins.core" },
+	{ import = "fufu.plugins.git" },
+	{ import = "fufu.plugins.ui" },
+	-- { import = "fufu.plugins.debugger" },
+	{ import = "fufu.plugins.utils" },
+	-- { import = "fufu.plugins.langs.go" },
+	{ import = "fufu.plugins.langs.ts" },
+}
 
-		{ import = "fufu.plugins.core" },
-		{ import = "fufu.plugins.git" },
-		{ import = "fufu.plugins.ui" },
-		-- { import = "fufu.plugins.debugger" },
-		{ import = "fufu.plugins.utils" },
-		-- { import = "fufu.plugins.under-testing" },
-		-- { import = "fufu.plugins.langs.go" },
-		{ import = "fufu.plugins.langs.ts" },
+local ui = {
+	icons = vim.g.have_nerd_font and {} or {
+		cmd = "⌘",
+		config = "🛠",
+		event = "📅",
+		ft = "📂",
+		init = "⚙",
+		keys = "🗝",
+		plugin = "🔌",
+		runtime = "💻",
+		require = "🌙",
+		source = "📄",
+		start = "🚀",
+		task = "📌",
+		lazy = "💤 ",
 	},
-}, {
-	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-		icons = vim.g.have_nerd_font and {} or {
-			cmd = "⌘",
-			config = "🛠",
-			event = "📅",
-			ft = "📂",
-			init = "⚙",
-			keys = "🗝",
-			plugin = "🔌",
-			runtime = "💻",
-			require = "🌙",
-			source = "📄",
-			start = "🚀",
-			task = "📌",
-			lazy = "💤 ",
-		},
-	},
-})
+}
+
+require("lazy").setup({ spec }, { ui })

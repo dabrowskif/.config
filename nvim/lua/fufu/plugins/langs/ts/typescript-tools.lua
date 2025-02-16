@@ -1,15 +1,9 @@
 return {
+
 	"pmizio/typescript-tools.nvim",
+	ft = { "typescript", "javascript", "svelte", "astro" },
 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
 	opts = {
-		-- on_attach = function(client, bufnr)
-		-- 	vim.api.nvim_create_autocmd("CursorHoldI", {
-		-- 		buffer = bufnr,
-		-- 		callback = function()
-		-- 			vim.lsp.buf.signature_help()
-		-- 		end,
-		-- 	})
-		-- end,
 		settings = {
 			expose_as_code_action = "all",
 			tsserver_file_preferences = function()

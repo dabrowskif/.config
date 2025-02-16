@@ -15,7 +15,6 @@ return {
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	},
 	config = function()
-		-- [[ Configure Telescope ]]
 		-- See `:help telescope` and `:help telescope.setup()`
 		-- :Telescope help_tags
 		-- Two important keymaps to use while in Telescope are:

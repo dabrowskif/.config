@@ -1,6 +1,7 @@
 -- disable if not using tmux - allows navigating between panes and nvim
 return {
 	"christoomey/vim-tmux-navigator",
+	event = "VeryLazy",
 	cmd = {
 		"TmuxNavigateLeft",
 		"TmuxNavigateDown",

@@ -1,6 +1,6 @@
 return {
-	"navarasu/onedark.nvim",
-	--[[ 	"folke/tokyonight.nvim", ]]
+	-- "navarasu/onedark.nvim",
+	"folke/tokyonight.nvim",
 	-- "ellisonleao/gruvbox.nvim",
 	-- "craftzdog/solarized-osaka.nvim",
 	-- "catppuccin/nvim",
@@ -8,17 +8,17 @@ return {
 	priority = 1000,
 	lazy = false,
 	init = function()
-		require("onedark").setup({
-			style = "deep",
-			highlights = {
-				["LineNr"] = { fg = "$orange" },
-				["CursorLineNr"] = { fg = "$blue" },
-			},
-		})
-		require("onedark").load()
+		-- require("onedark").setup({
+		-- 	style = "deep",
+		-- 	highlights = {
+		-- 		["LineNr"] = { fg = "$orange" },
+		-- 		["CursorLineNr"] = { fg = "$blue" },
+		-- 	},
+		-- })
+		-- require("onedark").load()
 
 		-- setup for tokyonight
-		-- vim.cmd.colorscheme("tokyonight-moon") -- 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+		vim.cmd.colorscheme("tokyonight-night") -- 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
 		-- vim.cmd.hi("Comment gui=none") -- configure highlights
 
 		-- setup for gruvbox

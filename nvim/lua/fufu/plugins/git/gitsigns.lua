@@ -1,5 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	event = "VeryLazy",
 	opts = {
 		signs = {
 			add = { text = "+" },
@@ -8,24 +9,31 @@ return {
 			topdelete = { text = "‾" },
 			changedelete = { text = "~" },
 		},
-
 		on_attach = function(bufnr)
 			local gitsigns = require("gitsigns")
 
-			local function map(mode, l, r, opts)
-				opts = opts or {}
-				opts.buffer = bufnr
-				vim.keymap.set(mode, l, r, opts)
+			-- Ensure we only attach if the file is inside a Git repository
+			if not gitsigns.status_dict then
+				return
 			end
 
-			map("n", "<leader>ghd", gitsigns.diffthis, { desc = "git [d]iff against index" })
-			map("n", "<leader>ghD", function()
+			vim.keymap.set("n", "<leader>ghd", gitsigns.diffthis, { buffer = bufnr, desc = "git [d]iff against index" })
+			vim.keymap.set("n", "<leader>ghD", function()
 				gitsigns.diffthis("@")
-			end, { desc = "git [D]iff against last commit" })
-
-			map("n", "<leader>ghb", gitsigns.blame_line, { desc = "git [b]lame line" })
-			map("n", "<leader>tgb", gitsigns.toggle_current_line_blame, { desc = "[T]oggle git show [b]lame line" })
-			map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
+			end, { buffer = bufnr, desc = "git [D]iff against last commit" })
+			vim.keymap.set("n", "<leader>ghb", gitsigns.blame_line, { buffer = bufnr, desc = "git [b]lame line" })
+			vim.keymap.set(
+				"n",
+				"<leader>tgb",
+				gitsigns.toggle_current_line_blame,
+				{ buffer = bufnr, desc = "[T]oggle git show [b]lame line" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>tD",
+				gitsigns.preview_hunk_inline,
+				{ buffer = bufnr, desc = "[T]oggle git show [D]eleted" }
+			)
 		end,
 	},
 }

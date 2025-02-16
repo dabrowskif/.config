@@ -1,5 +1,6 @@
 return {
 	"stevearc/oil.nvim",
+	lazy = true,
 	opts = {
 		lsp_file_methods = {
 			timeout_ms = 10000,
@@ -8,10 +9,6 @@ return {
 		default_file_explorer = true,
 		watch_for_changes = false,
 		keymaps = {
-			["<leader>or"] = {
-				"actions.open_cwd",
-				desc = "[o]il goto project [r]oot",
-			},
 			["<leader>oh"] = {
 				"actions.toggle_hidden",
 				desc = "[o]il toggle [h]idden",
@@ -26,8 +23,13 @@ return {
 		},
 	},
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	config = function(_, opts)
-		require("oil").setup(opts)
-		vim.keymap.set("n", "<leader>to", require("oil").toggle_float, { desc = "[T]oggle [O]il" })
-	end,
+	keys = {
+		{
+			"<leader>to",
+			function()
+				require("oil").toggle_float()
+			end,
+			desc = "[T]oggle [O]il",
+		},
+	},
 }
