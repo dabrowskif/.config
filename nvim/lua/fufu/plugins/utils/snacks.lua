@@ -3,8 +3,8 @@ return {
 	"folke/snacks.nvim",
 	---@type snacks.Config
 	opts = {
-		bigfile = {},
-		scratch = {},
+		-- bigfile = {},
+		-- scratch = {},
 		dashboard = {
 			preset = {
 				header = [[
@@ -20,6 +20,9 @@ return {
 		-- zen = {},
 		input = {},
 		notifier = {},
+		-- scope = {},
+		-- statuscolumn = {},
+		-- indent = {},
 		keys = {
 			{
 				"<leader>ts",
