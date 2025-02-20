@@ -24,20 +24,14 @@ return {
 		-- statuscolumn = {},
 		-- indent = {},
 		keys = {
-			{
-				"<leader>ts",
-				function()
-					Snacks.scratch()
-				end,
-				desc = "Toggle Scratch Buffer",
-			},
-			{
-				"<leader>tz",
-				function()
-					Snacks.zed()
-				end,
-				desc = "Toggle Scratch Buffer",
-			},
+			-- {
+			-- 	"<leader>tnh",
+			-- 	function()
+			-- 		Snacks.notifier.show_history()
+			-- 	end,
+			-- 	desc = "[T]oggle [N]otifier [H]istory",
+			-- },
+
 			-- {
 			--
 			-- 	"<leader>>",
@@ -48,4 +42,8 @@ return {
 			-- },
 		},
 	},
+	config = function(_, opts)
+		require("snacks").setup(opts)
+		vim.keymap.set("n", "<leader>tnh", Snacks.notifier.show_history, { desc = "[T]oggle [N]otifier [H]istory" })
+	end,
 }
