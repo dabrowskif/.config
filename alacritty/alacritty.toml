@@ -7,7 +7,24 @@ TERM = "xterm-256color"
 decorations = "Buttonless"
 
 [font]
-normal.family = "MesloLGS NF"
 size = 14
-# normal.family = "CommitMonoNerdFont"
 
+# [font.normal]
+# family = "MesloLGS NF"
+
+[font.normal]
+family = "BlexMono Nerd Font Mono"
+style = "Light"
+
+[font.bold]
+family = "BlexMono Nerd Font Mono"
+style = "Bold"
+
+
+[font.bold_italic]
+family = "BlexMono Nerd Font Mono"
+style = "Italic"
+
+[font.italic]
+family = "BlexMono Nerd Font Mono"
+style = "Light"
