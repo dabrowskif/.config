@@ -1,9 +1,9 @@
--- WARN: Must be before everything
+-- must be before everything
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
--- See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+-- setup lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -28,22 +28,4 @@ local spec = {
 	{ import = "fufu.plugins.langs.ts" },
 }
 
-local ui = {
-	icons = vim.g.have_nerd_font and {} or {
-		cmd = "⌘",
-		config = "🛠",
-		event = "📅",
-		ft = "📂",
-		init = "⚙",
-		keys = "🗝",
-		plugin = "🔌",
-		runtime = "💻",
-		require = "🌙",
-		source = "📄",
-		start = "🚀",
-		task = "📌",
-		lazy = "💤 ",
-	},
-}
-
-require("lazy").setup({ spec }, { ui })
+require("lazy").setup({ spec })

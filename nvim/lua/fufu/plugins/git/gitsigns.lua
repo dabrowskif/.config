@@ -13,9 +13,9 @@ return {
 			local gitsigns = require("gitsigns")
 
 			-- Ensure we only attach if the file is inside a Git repository
-			if not gitsigns.status_dict then
-				return
-			end
+			-- if not gitsigns.status_dict then
+			-- 	return
+			-- end
 
 			vim.keymap.set("n", "<leader>ghd", gitsigns.diffthis, { buffer = bufnr, desc = "git [d]iff against index" })
 			vim.keymap.set("n", "<leader>ghD", function()

@@ -1,6 +1,3 @@
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search" })
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
@@ -30,4 +27,3 @@ vim.keymap.set("n", "<leader>vr", ":LspRestart<CR>", { desc = "Restart LSP", sil
 vim.keymap.set("n", "<leader>vq", ":wqa!<CR>", { desc = "Save all and [q]uit Neovim", silent = true })
 -- vim.keymap.set("n", "<leader>vs", ":wa!<CR>", { desc = "Save all files", silent = true })
 vim.keymap.set("n", "<leader>vch", ":checkhealth ", { desc = "[C]heck[h]ealth of specific plugin" })
-vim.keymap.set("n", "<leader>vh", ":help ", { desc = "[h]elp of specific plugin" })

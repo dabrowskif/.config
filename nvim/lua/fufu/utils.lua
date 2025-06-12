@@ -13,4 +13,14 @@ M.apply_dev_mode = function(config, plugin_path)
 	return config
 end
 
+M.get_active_lsp_clients = function()
+	local clients = {}
+	for _, client in pairs(vim.lsp.get_clients({ bufnr = 0 })) do
+		if client.root_dir ~= nil then
+			clients[client.name] = true
+		end
+	end
+	return clients
+end
+
 return M

@@ -74,6 +74,7 @@ return {
 			eslint = {},
 			prettierd = {},
 			tailwindcss = {},
+			biome = {},
 			svelte = {},
 			astro = {},
 
@@ -83,8 +84,6 @@ return {
 			hadolint = {},
 			dockerls = {},
 			docker_compose_language_service = {},
-
-			-- ts_ls = {},
 
 			-- golang
 			gopls = {},
@@ -111,6 +110,13 @@ return {
 		require("mason").setup()
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup({
+			automatic_enable = {
+				exclude = {
+					"eslint",
+					"biome",
+					"tailwindcss",
+				},
+			},
 			handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
