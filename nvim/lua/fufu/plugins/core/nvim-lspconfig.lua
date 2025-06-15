@@ -72,6 +72,7 @@ return {
 		local servers = {
 			-- js/ts/html
 			eslint = {},
+			prettier = {},
 			prettierd = {},
 			tailwindcss = {},
 			biome = {},
@@ -111,11 +112,11 @@ return {
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup({
 			automatic_enable = {
-				exclude = {
-					"eslint",
-					"biome",
-					"tailwindcss",
-				},
+				-- exclude = {
+				-- 	"eslint",
+				-- 	"biome",
+				-- 	"tailwindcss",
+				-- },
 			},
 			handlers = {
 				function(server_name)
