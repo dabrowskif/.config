@@ -7,8 +7,10 @@ local function get_js_formatters()
 		return { "biome" }
 	elseif clients.eslint then
 		return { "prettier" }
+		-- return { "prettierd" }
 	else
-		return { "biome" }
+		return { "prettierd" }
+		-- return { "biome" }
 	end
 end
 
