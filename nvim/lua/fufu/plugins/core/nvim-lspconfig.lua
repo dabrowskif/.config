@@ -79,12 +79,26 @@ return {
 			svelte = {},
 			astro = {},
 
+			-- python
+			pyright = {}, -- Main Python LSP (type checking, completions, etc)
+			ruff = {}, -- Fast linter/formatter (replaces black, isort, flake8)
+
 			-- cicd
 			tflint = {},
 			terraformls = {},
 			hadolint = {},
 			dockerls = {},
-			docker_compose_language_service = {},
+
+			docker_compose_language_service = {
+				filetypes = { "yaml" },
+				root_dir = require("lspconfig").util.root_pattern(
+					"docker-compose.yml",
+					"docker-compose.yaml",
+					"compose.yml",
+					"compose.yaml"
+				),
+				single_file_support = true,
+			},
 
 			-- golang
 			gopls = {},
