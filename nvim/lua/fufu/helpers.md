@@ -44,10 +44,24 @@
 :cfdo %s/foo/bar/g | update
 
 
+# Sample workflow:
+find all occurences & replace
 
-# Argdo flow
-:
+```vim
+:cexpr system('git grep -n "^\s*SOME_PATTERN\s*="')
+```
+```vim
+:copen
+```
 
+```vim
+:cdo s/^\(\s*SOME_PATTERN\s*=\s*\)"\zs[^"]*\ze"/NEW_CODE/
+```
+Or to replace entire line:
+```vim
+:cdo s/^\s*SOME_PATTERN\s*=.*/  SOMETHING = "your_new_url"/
+```
 
-
-
+```vim
+:cfdo update
+```

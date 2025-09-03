@@ -32,5 +32,9 @@ vim.keymap.set("n", "<A-Left>", ":vertical resize +5<CR>", { silent = true })
 vim.keymap.set("n", "<A-Down>", ":resize +3<CR>", { silent = true })
 vim.keymap.set("n", "<A-Up>", ":resize -3<CR>", { silent = true })
 
+-- ripgrep for search
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
+vim.opt.grepformat = "%f:%l:%c:%m"
+
 vim.g.oaded_netrw = 1 -- FIXME: typo, check what happens if i fix it
 vim.g.loaded_netrwPlugin = 1

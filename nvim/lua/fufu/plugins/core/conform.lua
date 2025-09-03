@@ -6,8 +6,8 @@ local function get_js_formatters()
 	if clients.biome then
 		return { "biome" }
 	elseif clients.eslint then
-		return { "prettier" }
-		-- return { "prettierd" }
+		-- return { "prettier" }
+		return { "prettierd" }
 	else
 		return { "prettierd" }
 		-- return { "biome" }
@@ -30,9 +30,19 @@ local function format_after_save()
 	end
 
 	if clients.eslint then
-		vim.cmd("silent! EslintFixAll")
+		-- vim.cmd("silent! EslintFixAll")
 	end
 end
+
+vim.keymap.set("n", "<leader>fe", function()
+	vim.cmd("EslintFixAll")
+	vim.cmd(":w")
+end, { desc = "[F]ix [E]slint", silent = true })
+
+vim.keymap.set("n", "<leader>fi", function()
+	vim.cmd(":TSToolsAddMissingImports")
+	vim.cmd(":w")
+end, { desc = "[F]ix [I]mports", silent = true })
 
 return {
 	"stevearc/conform.nvim",
