@@ -19,6 +19,9 @@ return {
 
 		-- setup for tokyonight
 		vim.cmd.colorscheme("tokyonight-night") -- 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "orange" })
+		vim.api.nvim_set_hl(0, "LineNr", { fg = "orange" })
+		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "orange" })
 		-- vim.cmd.hi("Comment gui=none") -- configure highlights
 
 		-- setup for gruvbox

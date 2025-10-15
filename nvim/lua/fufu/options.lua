@@ -32,6 +32,8 @@ vim.keymap.set("n", "<A-Left>", ":vertical resize +5<CR>", { silent = true })
 vim.keymap.set("n", "<A-Down>", ":resize +3<CR>", { silent = true })
 vim.keymap.set("n", "<A-Up>", ":resize -3<CR>", { silent = true })
 
+vim.keymap.set("n", "<leader>wa", "<cmd>silent! wa!<cr>", { desc = "Write all (ignore errors)" })
+
 -- ripgrep for search
 vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 vim.opt.grepformat = "%f:%l:%c:%m"

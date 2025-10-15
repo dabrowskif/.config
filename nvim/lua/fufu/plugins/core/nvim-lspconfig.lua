@@ -105,6 +105,7 @@ return {
 			goimports = {},
 			templ = {},
 
+			jsonls = {},
 			-- lua
 			lua_ls = {
 				settings = {
