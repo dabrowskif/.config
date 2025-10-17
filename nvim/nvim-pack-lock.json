@@ -1,0 +1,36 @@
+{
+  "plugins": {
+    "blink": {
+      "version": "1.7.0 - 1.8.0"
+    },
+    "codecompanion": {
+      "rev": "09e6a8f",
+      "src": "https://github.com/olimorris/codecompanion.nvim"
+    },
+    "conform": [],
+    "harpoon": {
+      "version": "'harpoon2'"
+    },
+    "lazydev": [],
+    "lualine": [],
+    "mason": [],
+    "mini": [],
+    "noice": [],
+    "nui": [],
+    "nvim-eslint": [],
+    "nvim-lspconfig": [],
+    "nvim-treesitter": [],
+    "oil": [],
+    "plenary": [],
+    "snacks": [],
+    "tokyonight": [],
+    "typescript-tools": [],
+    "vectorcode": {
+      "rev": "e4c17b5",
+      "src": "https://github.com/Davidyz/VectorCode"
+    },
+    "vim-illuminate": [],
+    "vim-tmux-navigator": [],
+    "which-key": []
+  }
+}
