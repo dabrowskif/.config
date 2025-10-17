@@ -1,25 +1,10 @@
--- Harpoon
+-- Harpoon - fast recent navigation
 vim.pack.add({ { src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2", name = "harpoon" } })
-local harpoon = require("harpoon")
-harpoon:setup()
+require("harpoon"):setup()
 
-vim.keymap.set("n", "<leader>a", function()
-	harpoon:list():add()
-end, { desc = "[a]dd to harpoon list" })
-
-vim.keymap.set("n", "<leader>th", function()
-	harpoon.ui:toggle_quick_menu(harpoon:list())
-end, { desc = "[t]oggle harpoon list" })
-for i = 1, 5 do
-	vim.keymap.set("n", "<leader>" .. i, function()
-		harpoon:list():select(i)
-	end, { desc = "Open [" .. i .. "] harpoon file" })
-end
-
--- Oil
+-- Oil - file tree
 vim.pack.add({ { src = "https://github.com/stevearc/oil.nvim", name = "oil" } })
-local oil = require("oil")
-oil.setup({
+require("oil").setup({
 	skip_confirm_for_simple_edits = true,
 	prompt_save_on_select_new_entry = true,
 	float = {
@@ -32,15 +17,6 @@ oil.setup({
 		autosave_changes = "unmodified",
 	},
 })
-vim.keymap.set("n", "<leader>to", oil.toggle_float)
 
--- Vim Tmux Navigator
+-- Vim Tmux Navigator - moving between tmux panes to and from nvim
 vim.pack.add({ { src = "https://github.com/christoomey/vim-tmux-navigator", name = "vim-tmux-navigator" } })
-
--- File finder
--- (Snacks initialized in plugins.deps)
-vim.keymap.set("n", "<leader>sf", Snacks.picker.files, { desc = "[s]earch [f]iles" })
-vim.keymap.set("n", "<leader>sw", Snacks.picker.grep_word, { desc = "[s]erach [w]ord" })
-vim.keymap.set("n", "<leader>sg", Snacks.picker.grep, { desc = "[s]earch [g]rep" })
-vim.keymap.set("n", "<leader>sk", Snacks.picker.keymaps, { desc = "[s]earch [k]eymaps" })
-vim.keymap.set("n", "<leader>sr", Snacks.picker.resume, { desc = "[s]earch [r]ecent" })

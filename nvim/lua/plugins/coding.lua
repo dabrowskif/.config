@@ -1,10 +1,10 @@
--- Treesitter
+-- Treesitter - file AST & highlighting
 vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter" } })
 -- vim.schedule(function()
 -- 	vim.cmd.TSUpdate()
 -- end)
 
--- Autocomplete
+-- Blink - autocomplete
 vim.pack.add({ { src = "https://github.com/Saghen/blink.cmp", name = "blink", version = vim.version.range("1.7") } })
 local blink = require("blink.cmp")
 blink.setup({
@@ -19,10 +19,10 @@ blink.setup({
 	},
 })
 
--- Autopairs
+-- Mini.pairs - autopairs
 require("mini.pairs").setup()
 
--- Formatter
+-- Conform - formatter
 vim.pack.add({ { src = "https://github.com/stevearc/conform.nvim", name = "conform" } })
 require("conform").setup({
 	format_on_save = {

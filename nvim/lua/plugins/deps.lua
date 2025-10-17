@@ -1,7 +1,7 @@
--- Plenary
+-- Plenary - dependency for multiple plugins
 vim.pack.add({ { src = "https://github.com/nvim-lua/plenary.nvim", name = "plenary" } })
 
--- Snacks
+-- Snacks - multiple plugins
 vim.pack.add({ { src = "https://github.com/folke/snacks.nvim", name = "snacks" } })
 require("snacks").setup({
 	notifier = {},
@@ -17,5 +17,5 @@ require("snacks").setup({
 	zen = {},
 })
 
--- Mini
+-- Mini - multiple plugins
 vim.pack.add({ { src = "https://github.com/nvim-mini/mini.nvim", name = "mini" } })

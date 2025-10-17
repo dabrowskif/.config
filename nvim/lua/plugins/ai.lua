@@ -1,8 +1,8 @@
--- Vectorcode
+-- Vectorcode - creating vector db for LLLM context providing
 vim.pack.add({ { src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" } })
 -- "uv tool upgrade vectorcode", -- should run on startup to keep up to date
 
--- Codecompanion
+-- Codecompanion - for AI chats
 vim.pack.add({ { src = "https://github.com/olimorris/codecompanion.nvim", name = "codecompanion" } })
 
 ---@type CodeCompanion
@@ -85,4 +85,3 @@ local codeCompanionOpts = {
 }
 
 require("codecompanion").setup(codeCompanionOpts)
-vim.keymap.set("n", "<leader>cc", ":CodeCompanionActions<CR>", { desc = "[C]ode [C]ompanion Actions" })
