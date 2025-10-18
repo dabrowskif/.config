@@ -6,7 +6,7 @@ vim.g.have_nerd_font = true
 require("options")
 require("plugins")
 require("configs")
-require("setups")
 require("lsp")
+require("setups")
 
 require("keymaps") -- last since using plugins to set up multiple keywords

@@ -11,6 +11,10 @@
     "harpoon": {
       "version": "'harpoon2'"
     },
+    "illuminate": {
+      "rev": "0d1e936",
+      "src": "https://github.com/RRethy/vim-illuminate"
+    },
     "lazydev": [],
     "lualine": [],
     "mason": [],
@@ -21,9 +25,21 @@
     "nvim-lspconfig": [],
     "nvim-treesitter": [],
     "oil": [],
+    "perch": {
+      "rev": "e8ad7fc",
+      "src": "https://github.com/dabrowskif/perch.nvim"
+    },
     "plenary": [],
     "snacks": [],
+    "tmux-navigator": {
+      "rev": "c45243d",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
     "tokyonight": [],
+    "treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
     "typescript-tools": [],
     "vectorcode": {
       "rev": "e4c17b5",

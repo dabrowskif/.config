@@ -1,5 +1,13 @@
 local Configs = {}
 
+Configs.nvim_treesitter = {
+	auto_install = true,
+	highlight = {
+		enable = true,
+	},
+	indent = { enable = true },
+}
+
 ---@type conform.setupOpts
 Configs.conform = {
 	format_on_save = {
@@ -54,6 +62,14 @@ Configs.blink = {
 		["<C-b>"] = { "scroll_documentation_down" },
 		["<C-e>"] = { "accept" },
 		["<C-Space>"] = { "show" },
+	},
+	signature = {
+		enabled = true,
+		window = { show_documentation = true },
+	},
+	appearance = {
+		use_nvim_cmp_as_default = true,
+		nerd_font_variant = "mono",
 	},
 }
 
@@ -140,6 +156,14 @@ Configs.codeCompanion = {
 				})
 			end,
 		},
+	},
+}
+
+---@type Perch.Options
+Configs.perch = {
+	misc = {
+		notes_dir = "~/Documents/perch_notes/",
+		file_extension = "md",
 	},
 }
 

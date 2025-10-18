@@ -5,13 +5,13 @@ vim.pack.add({ { src = "https://github.com/nvim-mini/mini.nvim", name = "mini" }
 
 -- ##### CODING #####
 vim.pack.add({ { src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter" } })
-vim.pack.add({ { src = "https://github.com/Saghen/blink.cmp", name = "blink", version = vim.version.range("1.7") } })
+vim.pack.add({ { src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.7"), name = "blink" } })
 vim.pack.add({ { src = "https://github.com/stevearc/conform.nvim", name = "conform" } })
 --
 -- ##### NAVIGATION #####
 vim.pack.add({ { src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2", name = "harpoon" } })
 vim.pack.add({ { src = "https://github.com/stevearc/oil.nvim", name = "oil" } })
-vim.pack.add({ { src = "https://github.com/christoomey/vim-tmux-navigator", name = "vim-tmux-navigator" } })
+vim.pack.add({ { src = "https://github.com/christoomey/vim-tmux-navigator", name = "tmux-navigator" } })
 
 -- ##### UI #####
 vim.pack.add({ { src = "https://github.com/folke/tokyonight.nvim", name = "tokyonight" } })
@@ -23,7 +23,8 @@ vim.pack.add({ { src = "https://github.com/folke/noice.nvim", name = "noice" } }
 vim.pack.add({ { src = "https://github.com/folke/which-key.nvim", name = "which-key" } })
 vim.pack.add({ { src = "https://github.com/folke/lazydev.nvim", name = "lazydev" } })
 vim.pack.add({ { src = "https://github.com/mason-org/mason.nvim", name = "mason" } })
-vim.pack.add({ { src = "https://github.com/RRethy/vim-illuminate", name = "vim-illuminate" } })
+vim.pack.add({ { src = "https://github.com/RRethy/vim-illuminate", name = "illuminate" } })
+vim.pack.add({ { src = "https://github.com/dabrowskif/perch.nvim", name = "perch" } })
 
 -- ##### AI #####
 vim.pack.add({ { src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" } })

@@ -33,7 +33,6 @@ vim.keymap.set("n", "<leader>sw", Snacks.picker.grep_word, { desc = "[s]erach [w
 vim.keymap.set("n", "<leader>sg", Snacks.picker.grep, { desc = "[s]earch [g]rep" })
 vim.keymap.set("n", "<leader>sk", Snacks.picker.keymaps, { desc = "[s]earch [k]eymaps" })
 vim.keymap.set("n", "<leader>sr", Snacks.picker.resume, { desc = "[s]earch [r]ecent" })
-
 local harpoon = require("harpoon")
 vim.keymap.set("n", "<leader>a", function()
 	harpoon:list():add()
