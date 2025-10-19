@@ -47,6 +47,10 @@
     },
     "vim-illuminate": [],
     "vim-tmux-navigator": [],
+    "web-devicons": {
+      "rev": "b8221e4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
     "which-key": []
   }
 }

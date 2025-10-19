@@ -1,4 +1,5 @@
 -- ##### DEPENDENCIES #####
+vim.pack.add({ { src = "https://github.com/nvim-tree/nvim-web-devicons", name = "web-devicons" } })
 vim.pack.add({ { src = "https://github.com/nvim-lua/plenary.nvim", name = "plenary" } })
 vim.pack.add({ { src = "https://github.com/folke/snacks.nvim", name = "snacks" } })
 vim.pack.add({ { src = "https://github.com/nvim-mini/mini.nvim", name = "mini" } })
@@ -23,7 +24,6 @@ vim.pack.add({ { src = "https://github.com/folke/noice.nvim", name = "noice" } }
 vim.pack.add({ { src = "https://github.com/folke/which-key.nvim", name = "which-key" } })
 vim.pack.add({ { src = "https://github.com/folke/lazydev.nvim", name = "lazydev" } })
 vim.pack.add({ { src = "https://github.com/mason-org/mason.nvim", name = "mason" } })
-vim.pack.add({ { src = "https://github.com/RRethy/vim-illuminate", name = "illuminate" } })
 vim.pack.add({ { src = "https://github.com/dabrowskif/perch.nvim", name = "perch" } })
 
 -- ##### AI #####

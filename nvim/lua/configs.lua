@@ -37,10 +37,11 @@ Configs.snacks = {
 	zen = {},
 }
 
----@type oil.Config
+---@type oil.SetupOpts
 Configs.oil = {
 	skip_confirm_for_simple_edits = true,
 	prompt_save_on_select_new_entry = true,
+	watch_for_changes = false,
 	float = {
 		max_width = 0.5,
 		max_height = 0.5,
@@ -48,7 +49,8 @@ Configs.oil = {
 	},
 	lsp_file_methods = {
 		enabled = true,
-		autosave_changes = "unmodified",
+		timeout_ms = 10000,
+		-- autosave_changes = true,
 	},
 }
 
