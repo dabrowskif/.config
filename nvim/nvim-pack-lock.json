@@ -3,54 +3,52 @@
     "blink": {
       "version": "1.7.0 - 1.8.0"
     },
-    "codecompanion": {
-      "rev": "09e6a8f",
-      "src": "https://github.com/olimorris/codecompanion.nvim"
-    },
+    "codecompanion": [],
     "conform": [],
+    "flash": {
+      "rev": "fcea7ff",
+      "src": "https://github.com/folke/flash.nvim"
+    },
+    "git-signs": {
+      "rev": "20ad441",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "gitsigns": {
+      "rev": "20ad441",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
     "harpoon": {
       "version": "'harpoon2'"
     },
-    "illuminate": {
-      "rev": "0d1e936",
-      "src": "https://github.com/RRethy/vim-illuminate"
-    },
     "lazydev": [],
+    "lazydocker": {
+      "rev": "3330d1f",
+      "src": "https://github.com/mgierada/lazydocker.nvim"
+    },
+    "lsp-file-operations": {
+      "rev": "9744b73",
+      "src": "https://github.com/antosha417/nvim-lsp-file-operations"
+    },
     "lualine": [],
     "mason": [],
     "mini": [],
+    "neo-tree": [],
     "noice": [],
     "nui": [],
-    "nvim-eslint": [],
-    "nvim-lspconfig": [],
     "nvim-treesitter": [],
     "oil": [],
-    "perch": {
-      "rev": "e8ad7fc",
-      "src": "https://github.com/dabrowskif/perch.nvim"
-    },
+    "perch": [],
     "plenary": [],
     "snacks": [],
-    "tmux-navigator": {
-      "rev": "c45243d",
-      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    "test-lsp-rename": [],
+    "tmux-navigator": [],
+    "toggleterm": {
+      "rev": "9a88eae",
+      "src": "https://github.com/akinsho/toggleterm.nvim"
     },
     "tokyonight": [],
-    "treesitter": {
-      "rev": "42fc28ba",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
-    },
-    "typescript-tools": [],
-    "vectorcode": {
-      "rev": "e4c17b5",
-      "src": "https://github.com/Davidyz/VectorCode"
-    },
-    "vim-illuminate": [],
-    "vim-tmux-navigator": [],
-    "web-devicons": {
-      "rev": "b8221e4",
-      "src": "https://github.com/nvim-tree/nvim-web-devicons"
-    },
+    "vectorcode": [],
+    "web-devicons": [],
     "which-key": []
   }
 }

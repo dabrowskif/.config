@@ -10,3 +10,5 @@ vim.opt.shiftwidth = 2
 vim.opt.signcolumn = "yes"
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.clipboard = "unnamedplus"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
