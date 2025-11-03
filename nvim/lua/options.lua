@@ -12,3 +12,5 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
+vim.opt.breakindent = true
+vim.opt.signcolumn = "yes"

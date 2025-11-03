@@ -37,6 +37,13 @@ vim.pack.add({
 	-- ##### AI #####
 	{ src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" },
 	{ src = "https://github.com/olimorris/codecompanion.nvim", name = "codecompanion" },
+
+	-- ##### Debugger #####
+	{ src = "https://github.com/rcarriga/nvim-dap-ui", name = "dapui" }, -- dependency
+	{ src = "https://github.com/nvim-neotest/nvim-nio", name = "nio" }, -- dependency
+	{ src = "https://github.com/jay-babu/mason-nvim-dap.nvim", name = "mason-nvim-dap" }, -- dependency
+	{ src = "https://github.com/mxsdev/nvim-dap-vscode-js", name = "dap-vscode-js" }, -- dependency
+	{ src = "https://github.com/mfussenegger/nvim-dap", name = "dap" },
 })
 
 local Configs = require("plugins-configs")
@@ -73,3 +80,4 @@ require("perch").setup(Configs.perch)
 require("toggleterm").setup()
 require("lazydocker").setup()
 require("flash").setup(Configs.flash)
+Configs.getNvimDapConfig()

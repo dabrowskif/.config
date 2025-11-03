@@ -5,6 +5,22 @@
     },
     "codecompanion": [],
     "conform": [],
+    "dap": {
+      "rev": "6782b09",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "dap-ui": {
+      "rev": "cf91d5e",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    },
+    "dap-vscode-js": {
+      "rev": "03bd296",
+      "src": "https://github.com/mxsdev/nvim-dap-vscode-js"
+    },
+    "dapui": {
+      "rev": "cf91d5e",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    },
     "flash": {
       "rev": "fcea7ff",
       "src": "https://github.com/folke/flash.nvim"
@@ -31,10 +47,42 @@
     },
     "lualine": [],
     "mason": [],
+    "mason-nvim-dap": {
+      "rev": "9a10e09",
+      "src": "https://github.com/jay-babu/mason-nvim-dap.nvim"
+    },
+    "mason-nvim-dap.nvim": {
+      "rev": "9a10e09",
+      "src": "https://github.com/jay-babu/mason-nvim-dap.nvim"
+    },
+    "mason.nvim": {
+      "rev": "ad7146a",
+      "src": "https://github.com/williamboman/mason.nvim"
+    },
     "mini": [],
     "neo-tree": [],
+    "nio": {
+      "rev": "21f5324",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
+    },
     "noice": [],
     "nui": [],
+    "nvim-dap": {
+      "rev": "6782b09",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-dap-ui": {
+      "rev": "cf91d5e",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    },
+    "nvim-dap-vscode-js": {
+      "rev": "03bd296",
+      "src": "https://github.com/mxsdev/nvim-dap-vscode-js"
+    },
+    "nvim-nio": {
+      "rev": "21f5324",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
+    },
     "nvim-treesitter": [],
     "oil": [],
     "perch": [],

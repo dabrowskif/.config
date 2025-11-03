@@ -1,9 +1,11 @@
--- Updates
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move lines block up" })
-
 -- Coding
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move lines block up" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move lines block down" })
+
+vim.keymap.set("n", "<A-Right>", ":vertical resize -5<CR>", { silent = true, desc = "Resize Right" })
+vim.keymap.set("n", "<A-Left>", ":vertical resize +5<CR>", { silent = true, desc = "Resize Left" })
+vim.keymap.set("n", "<A-Down>", ":resize +3<CR>", { silent = true, desc = "Resize Down" })
+vim.keymap.set("n", "<A-Up>", ":resize -3<CR>", { silent = true, desc = "Resize Up" })
 
 -- Diagnostics
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
@@ -121,3 +123,10 @@ vim.keymap.set("n", "<leader>go", function()
 end, { desc = "Open file in git" })
 vim.keymap.set("n", "<leader>tn", Snacks.notifier.show_history, { desc = "Toggle notifications" })
 vim.keymap.set("n", "<leader>cc", ":CodeCompanionActions<CR>", { desc = "Code companion actions" })
+
+-- Debugger
+vim.keymap.set("n", "<leader>dt", require("dapui").toggle, { desc = "[D]ebugger: toggle" })
+vim.keymap.set("n", "<leader>db", require("dap").toggle_breakpoint, { desc = "[D]ebugger: Toggle Breakpoint" })
+vim.keymap.set("n", "<leader>dB", function()
+	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, { desc = "[D]ebugger: Set Breakpoint" })
