@@ -8,9 +8,15 @@ vim.keymap.set("n", "<A-Down>", ":resize +3<CR>", { silent = true, desc = "Resiz
 vim.keymap.set("n", "<A-Up>", ":resize -3<CR>", { silent = true, desc = "Resize Up" })
 
 -- Diagnostics
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+-- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+-- vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic error messages" })
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.goto_prev({ severity = 1 })
+end, { desc = "Go to previous diagnostic error" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.goto_next({ severity = 1 })
+end, { desc = "Go to next diagnostic error" })
 
 -- Utils
 vim.keymap.set("n", "<Esc>", ":nohl<CR>", { silent = true, desc = "Clear search" })
@@ -83,41 +89,7 @@ end, { desc = "Lazy git" })
 vim.keymap.set("n", "<leader>ldo", function()
 	require("Lazydocker").open()
 end, { desc = "Lazy docker" })
-vim.keymap.set("n", "<leader>lds", function()
-	local id = "colima_start"
-
-	-- Initial notification
-	vim.notify("Starting Colima...", "info", {
-		id = id,
-		title = "Colima",
-		icon = "󰨊 ",
-		timeout = false,
-	})
-
-	vim.fn.jobstart("colima start", {
-		stdout_buffered = true,
-		stderr_buffered = true,
-		on_exit = function(_, code)
-			vim.schedule(function()
-				if code == 0 then
-					vim.notify("Colima started successfully!", "info", {
-						id = id,
-						title = "Colima",
-						hl = {
-							title = "SnacksNotifierSuccess",
-							border = "SnacksNotifierSuccess",
-						},
-					})
-				else
-					vim.notify("Failed to start Colima.", "error", {
-						id = id,
-						title = "Colima",
-					})
-				end
-			end)
-		end,
-	})
-end, { desc = "Start dockerd" })
+vim.keymap.set("n", "<leader>lds", require("utils").start_colima, { desc = "Start dockerd" })
 vim.keymap.set("n", "<leader>go", function()
 	Snacks.gitbrowse()
 end, { desc = "Open file in git" })

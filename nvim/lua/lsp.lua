@@ -1,3 +1,7 @@
+vim.lsp.handlers["workspace/diagnostic/refresh"] = function(_, _, _)
+	return vim.NIL
+end
+
 -- Lua
 vim.lsp.config["lua_ls"] = {
 	cmd = { "lua-language-server" },
@@ -18,8 +22,8 @@ vim.lsp.config["lua_ls"] = {
 vim.lsp.enable("lua_ls")
 
 -- eslint
-vim.pack.add({ { src = "https://github.com/esmuellert/nvim-eslint", name = "nvim-eslint" } })
-require("nvim-eslint").setup({})
+-- vim.pack.add({ { src = "https://github.com/esmuellert/nvim-eslint", name = "nvim-eslint" } })
+-- require("nvim-eslint").setup({})
 
 -- typescript
 vim.pack.add({ { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig" } })
@@ -50,10 +54,18 @@ vim.lsp.config["docker_ls"] = {
 }
 vim.lsp.enable("docker_ls")
 
--- vim.lsp.config["dockercompose_ls"] = {
--- 	cmd = { "docker-compose-langserver", "--stdio" },
--- }
--- vim.lsp.enable("dockercompose_ls")
+vim.lsp.config["tf_ls"] = {
+	cmd = { "terraform-ls", "serve" },
+	filetypes = { "terraform", "terraform-state", "tf" },
+	settings = {},
+}
+vim.lsp.enable("tf_ls")
+
+vim.lsp.config["dockercompose_ls"] = {
+	cmd = { "docker-compose-langserver", "--stdio" },
+	filetypes = { "dockercompose" },
+}
+vim.lsp.enable("dockercompose_ls")
 
 vim.lsp.config["svelte_ls"] = {
 	cmd = { "svelteserver", "--stdio" },

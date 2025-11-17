@@ -8,6 +8,7 @@ Configs.colorscheme = function()
 	vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
 end
 
+---@type TSConfig
 Configs.nvim_treesitter = {
 	auto_install = true,
 	highlight = {
@@ -15,11 +16,10 @@ Configs.nvim_treesitter = {
 	},
 	indent = { enable = true },
 }
-
 ---@type conform.setupOpts
 Configs.conform = {
 	format_on_save = {
-		timeout_ms = 5000,
+		timeout_ms = 2000,
 		lsp_format = "fallback",
 	},
 	formatters_by_ft = {
@@ -28,6 +28,9 @@ Configs.conform = {
 		typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
 		svelte = { "prettierd", "prettier", "biome", stop_after_first = true },
 		python = { "black" },
+		-- dockerfile = { "hadolint" },
+		-- terraform = { "tflint" },
+		-- ["terraform-state"] = { "tflint" },
 	},
 }
 
@@ -374,15 +377,15 @@ Configs.getNvimDapConfig = function()
 
 	local js_based_languages = { "typescript", "javascript" }
 
-	-- require("dap").adapters["pwa-node"] = {
-	-- 	type = "server",
-	-- 	host = "localhost",
-	-- 	port = "${port}",
-	-- 	executable = {
-	-- 		command = "js-debug-adapter",
-	-- 		args = { "${port}" },
-	-- 	},
-	-- }
+	require("dap").adapters["pwa-node"] = {
+		type = "server",
+		host = "localhost",
+		port = "${port}",
+		executable = {
+			command = "js-debug-adapter",
+			args = { "${port}" },
+		},
+	}
 
 	for _, language in ipairs(js_based_languages) do
 		require("dap").configurations[language] = {
