@@ -1,5 +1,13 @@
 local Configs = {}
 
+Configs.tokyonight = {
+  transparent = true,
+  styles = {
+    sidebars = "transparent",
+    floats = "transparent",
+  },
+}
+
 Configs.colorscheme = function()
 	vim.cmd.colorscheme("tokyonight-night")
 	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "orange" })

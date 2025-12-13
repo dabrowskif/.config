@@ -1,10 +1,18 @@
 {
   "plugins": {
     "blink": {
+      "rev": "327fff91fe6af358e990be7be1ec8b78037d2138",
+      "src": "https://github.com/Saghen/blink.cmp",
       "version": "1.7.0 - 1.8.0"
     },
-    "codecompanion": [],
-    "conform": [],
+    "codecompanion": {
+      "rev": "8ad65eef735b31bb47d76f59d878ee1bac4bdc85",
+      "src": "https://github.com/olimorris/codecompanion.nvim"
+    },
+    "conform": {
+      "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "dap": {
       "rev": "6782b09",
       "src": "https://github.com/mfussenegger/nvim-dap"
@@ -34,9 +42,14 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "harpoon": {
+      "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
+      "src": "https://github.com/ThePrimeagen/harpoon",
       "version": "'harpoon2'"
     },
-    "lazydev": [],
+    "lazydev": {
+      "rev": "5231c62aa83c2f8dc8e7ba957aa77098cda1257d",
+      "src": "https://github.com/folke/lazydev.nvim"
+    },
     "lazydocker": {
       "rev": "3330d1f",
       "src": "https://github.com/mgierada/lazydocker.nvim"
@@ -45,8 +58,14 @@
       "rev": "9744b73",
       "src": "https://github.com/antosha417/nvim-lsp-file-operations"
     },
-    "lualine": [],
-    "mason": [],
+    "lualine": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "mason": {
+      "rev": "57e5a8addb8c71fb063ee4acda466c7cf6ad2800",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
     "mason-nvim-dap": {
       "rev": "9a10e09",
       "src": "https://github.com/jay-babu/mason-nvim-dap.nvim"
@@ -59,14 +78,22 @@
       "rev": "ad7146a",
       "src": "https://github.com/williamboman/mason.nvim"
     },
-    "mini": [],
-    "neo-tree": [],
+    "mini": {
+      "rev": "6bd3a01aaf7d248aea1b78aacdd5d44bffa002c1",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "nio": {
       "rev": "21f5324",
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
-    "noice": [],
-    "nui": [],
+    "noice": {
+      "rev": "7bfd942445fb63089b59f97ca487d605e715f155",
+      "src": "https://github.com/folke/noice.nvim"
+    },
+    "nui": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim-dap": {
       "rev": "6782b09",
       "src": "https://github.com/mfussenegger/nvim-dap"
@@ -79,24 +106,61 @@
       "rev": "03bd296",
       "src": "https://github.com/mxsdev/nvim-dap-vscode-js"
     },
+    "nvim-lspconfig": {
+      "rev": "0044d0987ef7e624d04141d0f90d0481fd3c3663",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
     "nvim-nio": {
       "rev": "21f5324",
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
-    "nvim-treesitter": [],
-    "oil": [],
-    "perch": [],
-    "plenary": [],
-    "snacks": [],
-    "test-lsp-rename": [],
-    "tmux-navigator": [],
+    "nvim-treesitter": {
+      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil": {
+      "rev": "cbcb3f997f6f261c577b943ec94e4ef55108dd95",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "perch": {
+      "rev": "e8ad7fc5add12cc17a3245fa6c5f0b4cfdfb27ba",
+      "src": "https://github.com/dabrowskif/perch.nvim"
+    },
+    "plenary": {
+      "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "snacks": {
+      "rev": "fe7cfe9800a182274d0f868a74b7263b8c0c020b",
+      "src": "https://github.com/folke/snacks.nvim"
+    },
+    "tmux-navigator": {
+      "rev": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a",
+      "src": "https://github.com/christoomey/vim-tmux-navigator"
+    },
     "toggleterm": {
       "rev": "9a88eae",
       "src": "https://github.com/akinsho/toggleterm.nvim"
     },
-    "tokyonight": [],
-    "vectorcode": [],
-    "web-devicons": [],
-    "which-key": []
+    "tokyonight": {
+      "rev": "5da1b76e64daf4c5d410f06bcb6b9cb640da7dfd",
+      "src": "https://github.com/folke/tokyonight.nvim"
+    },
+    "typescript-tools": {
+      "rev": "c2f5910074103705661e9651aa841e0d7eea9932",
+      "src": "https://github.com/pmizio/typescript-tools.nvim"
+    },
+    "vectorcode": {
+      "rev": "171361ea0410e739f9bf2a04c75113cd80d3c0d0",
+      "src": "https://github.com/Davidyz/VectorCode"
+    },
+    "web-devicons": {
+      "rev": "8dcb311b0c92d460fac00eac706abd43d94d68af",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "which-key": {
+      "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
   }
 }

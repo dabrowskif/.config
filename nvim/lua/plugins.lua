@@ -56,6 +56,8 @@ local Configs = require("plugins-configs")
 -- 	vim.cmd.TSUpdate()
 -- end)
 
+
+require("tokyonight").setup(Configs.tokyonight)
 Configs.colorscheme()
 
 require("snacks").setup(Configs.snacks)
