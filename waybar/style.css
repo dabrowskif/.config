@@ -1,0 +1,58 @@
+* {
+  background-color: #1a1b26;
+  color: #cdd6f4;
+  font-family: 'BlexMono Nerd Font Mono';
+  font-size: 18px;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+#workspaces button {
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 20px;
+}
+
+#workspaces button.active label {
+  color: #FFAF00;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#cpu {
+	font-size: 25px;
+  margin: 0 7.5px;
+}
+
+#battery {
+	font-size: 18px;
+  margin: 0 7.5px;
+}
+
+#pulseaudio {
+	font-size: 30px;
+  margin: 0 7.5px;
+}
+
+#nework {
+	font-size: 32px;
+  /* margin: 0 7.5px; */
+}
+
+#bluetooth {
+	font-size: 25px;
+  margin: 0 7.5px;
+}
+
+tooltip {
+  padding: 2px;
+}
