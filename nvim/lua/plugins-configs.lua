@@ -10,9 +10,9 @@ Configs.tokyonight = {
 
 Configs.colorscheme = function()
 	vim.cmd.colorscheme("tokyonight-night")
-	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "orange" })
-	vim.api.nvim_set_hl(0, "LineNr", { fg = "orange" })
-	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "orange" })
+	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#FFAF00" })
+	vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFAF00" })
+	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FFAF00" })
 	vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
 end
 
@@ -111,39 +111,39 @@ Configs.hipatterns = {
 Configs.codeCompanion = {
 	---@type CodeCompanion.Extensions
 	extensions = {
-		vectorcode = {
-			---@type VectorCode.CodeCompanion.ExtensionOpts
-			opts = {
-				tool_group = {
-					enabled = true,
-					extras = {
-						-- TODO: setup
-						"file_search",
-					},
-					collapse = false,
-				},
-				tool_opts = {
-					["*"] = {},
-					ls = {},
-					vectorise = {},
-					query = {
-						max_num = { chunk = -1, document = -1 },
-						default_num = { chunk = 50, document = 10 },
-						include_stderr = false,
-						use_lsp = false,
-						no_duplicate = true,
-						chunk_mode = false,
-						summarise = {
-							enabled = false,
-							adapter = nil,
-							query_augmented = true,
-						},
-					},
-					files_ls = {},
-					files_rm = {},
-				},
-			},
-		},
+		-- vectorcode = {
+		-- 	---@type VectorCode.CodeCompanion.ExtensionOpts
+		-- 	opts = {
+		-- 		tool_group = {
+		-- 			enabled = true,
+		-- 			extras = {
+		-- 				-- TODO: setup
+		-- 				"file_search",
+		-- 			},
+		-- 			collapse = false,
+		-- 		},
+		-- 		tool_opts = {
+		-- 			["*"] = {},
+		-- 			ls = {},
+		-- 			vectorise = {},
+		-- 			query = {
+		-- 				max_num = { chunk = -1, document = -1 },
+		-- 				default_num = { chunk = 50, document = 10 },
+		-- 				include_stderr = false,
+		-- 				use_lsp = false,
+		-- 				no_duplicate = true,
+		-- 				chunk_mode = false,
+		-- 				summarise = {
+		-- 					enabled = false,
+		-- 					adapter = nil,
+		-- 					query_augmented = true,
+		-- 				},
+		-- 			},
+		-- 			files_ls = {},
+		-- 			files_rm = {},
+		-- 		},
+		-- 	},
+		-- },
 	},
 	strategies = {
 		chat = {

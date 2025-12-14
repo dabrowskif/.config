@@ -35,7 +35,7 @@ vim.pack.add({
 	{ src = "https://github.com/dabrowskif/perch.nvim", name = "perch" },
 
 	-- ##### AI #####
-	{ src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" },
+	-- { src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" },
 	{ src = "https://github.com/olimorris/codecompanion.nvim", name = "codecompanion" },
 
 	-- ##### Debugger #####
