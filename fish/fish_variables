@@ -65,7 +65,7 @@ SETUVAR pure_color_normal:normal
 SETUVAR pure_color_prefix_root_prompt:pure_color_danger
 SETUVAR pure_color_primary:blue
 SETUVAR pure_color_prompt_on_error:pure_color_danger
-SETUVAR pure_color_prompt_on_success:ff6600
+SETUVAR pure_color_prompt_on_success:FFAF00
 SETUVAR pure_color_success:magenta
 SETUVAR pure_color_system_time:pure_color_mute
 SETUVAR pure_color_username_normal:pure_color_mute

@@ -1,5 +1,5 @@
 set_color ff6600
-set --universal pure_color_prompt_on_success ff6600
+set --universal pure_color_prompt_on_success FFAF00
 set -U fish_greeting ""
 fish_vi_key_bindings
 
