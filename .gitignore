@@ -1,0 +1,31 @@
+*
+!.gitignore
+
+# life
+!nvim
+!nvim/**/*
+!tmux
+!tmux/**/*
+tmux/plugins
+
+# terminal
+!foot
+!foot/**/*
+!fish
+!fish/**/*
+!omf
+!omf/**/*
+
+# arch + hyprland
+!rofi
+!rofi/**/*
+!hypr
+!hypr/**/*
+!waybar
+!waybar/**/*
+
+# deprecated, on macos
+!alacritty
+!alacritty/**/*
+!yabai
+!yabai/**/*
