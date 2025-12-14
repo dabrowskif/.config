@@ -6,3 +6,5 @@ if status is-interactive
 		and not set -q TMUX
 		ta -t 00_Configs || tmux
 end
+
+set PATH $PATH /home/fufu/.local/bin
