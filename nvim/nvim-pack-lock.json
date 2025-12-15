@@ -102,6 +102,10 @@
       "rev": "cf91d5e",
       "src": "https://github.com/rcarriga/nvim-dap-ui"
     },
+    "nvim-dap-virtual-text": {
+      "rev": "fbdb48c",
+      "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
+    },
     "nvim-dap-vscode-js": {
       "rev": "03bd296",
       "src": "https://github.com/mxsdev/nvim-dap-vscode-js"

@@ -36,6 +36,7 @@ Configs.conform = {
 		typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
 		svelte = { "prettierd", "prettier", "biome", stop_after_first = true },
 		python = { "black" },
+		json = { "jsonlint" },
 		-- dockerfile = { "hadolint" },
 		-- terraform = { "tflint" },
 		-- ["terraform-state"] = { "tflint" },
@@ -193,12 +194,12 @@ Configs.perch = {
 
 Configs.miniSurround = {
 	mappings = {
-		add = "Sa",
-		delete = "Sd",
-		find = "Sf",
-		find_left = "SF",
-		highlight = "Sh",
-		replace = "Sr",
+		-- add = "Sa",
+		-- delete = "Sd",
+		-- find = "Sf",
+		-- find_left = "SF",
+		-- highlight = "Sh",
+		-- replace = "Sr",
 		suffix_last = "l",
 		suffix_next = "n",
 	},
@@ -237,18 +238,6 @@ Configs.gitsigns = {
 	end,
 }
 
----@type Flash.Config
-Configs.flash = {
-	labels = "oienm;yuljkh",
-	label = {
-		uppercase = false,
-	},
-	search = {
-		multi_window = false,
-		mode = "fuzzy",
-	},
-}
-
 local function getNeoTreeConfig()
 	---@type neotree.Config
 	local config = {
@@ -275,6 +264,8 @@ end
 Configs.getNvimDapConfig = function()
 	local dap = require("dap")
 	local dapui = require("dapui")
+
+	require("nvim-dap-virtual-text").setup()
 
 	require("mason-nvim-dap").setup({
 		automatic_installation = true,

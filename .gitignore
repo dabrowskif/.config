@@ -8,6 +8,8 @@
 !tmux/**/*
 tmux/plugins
 
+.env
+
 # terminal
 !foot
 !foot/**/*

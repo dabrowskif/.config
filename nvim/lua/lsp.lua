@@ -90,3 +90,15 @@ vim.lsp.config["python_ls"] = {
 	},
 }
 vim.lsp.enable("python_ls")
+
+vim.lsp.config["go_ls"] = {
+	cmd = { "gopls" },
+	filetypes = { "go" },
+}
+vim.lsp.enable("go_ls")
+
+vim.lsp.config["json_ls"] = {
+	cmd = { "vscode-json-language-server", "--stdio" },
+	filetypes = { "json" },
+}
+vim.lsp.enable("json_ls")

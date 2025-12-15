@@ -44,6 +44,7 @@ vim.pack.add({
 	{ src = "https://github.com/jay-babu/mason-nvim-dap.nvim", name = "mason-nvim-dap" }, -- dependency
 	{ src = "https://github.com/mxsdev/nvim-dap-vscode-js", name = "dap-vscode-js" }, -- dependency
 	{ src = "https://github.com/mfussenegger/nvim-dap", name = "dap" },
+	{ src = "https://github.com/theHamsta/nvim-dap-virtual-text", name = "nvim-dap-virtual-text" }, -- inline hints
 })
 
 local Configs = require("plugins-configs")
