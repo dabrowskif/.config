@@ -21,7 +21,7 @@ function m
     end
 
     if test $mode = external
-        hyprctl keyword monitor "$external,3440x1440@75,auto,1,bitdepth,10,cm,hdr,sdrbrightness,1.25,sdrsaturation,1"
+        hyprctl keyword monitor "$external,3440x1440@60,auto,1,bitdepth,10,cm,hdr,sdrbrightness,1.25,sdrsaturation,1"
         hyprctl keyword monitor "$internal,disable"
 		else
         hyprctl keyword monitor "$internal,1920x1080@120,0x0,1"
