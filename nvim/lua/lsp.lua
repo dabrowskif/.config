@@ -56,7 +56,7 @@ vim.lsp.enable("docker_ls")
 
 vim.lsp.config["tf_ls"] = {
 	cmd = { "terraform-ls", "serve" },
-	filetypes = { "terraform", "terraform-state", "tf" },
+	filetypes = { "terraform", "terraform-state", "tf", "terraform-vars" },
 	settings = {},
 }
 vim.lsp.enable("tf_ls")
