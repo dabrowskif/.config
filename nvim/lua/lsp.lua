@@ -29,7 +29,7 @@ vim.lsp.enable("lua_ls")
 vim.pack.add({ { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig" } })
 vim.pack.add({ { src = "https://github.com/pmizio/typescript-tools.nvim", name = "typescript-tools" } })
 require("typescript-tools").setup({
-	filetypes = { "svelte", "javascript", "typescript" },
+	filetypes = { "svelte", "javascript", "typescript", "javascriptreact", "typescriptreact" },
 	settings = {
 		expose_as_code_action = "all",
 		-- tsserver_format_options = function()
