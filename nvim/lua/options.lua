@@ -14,3 +14,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.breakindent = true
 vim.opt.signcolumn = "yes"
+-- use ripgrep
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden --follow"
+vim.opt.grepformat = "%f:%l:%c:%m"
