@@ -148,13 +148,13 @@ Configs.codeCompanion = {
 	},
 	strategies = {
 		chat = {
-			adapter = "anthropic",
+			adapter = "copilot",
 		},
 		inline = {
-			adapter = "anthropic",
+			adapter = "copilot",
 		},
 		cmd = {
-			adapter = "anthropic",
+			adapter = "copilot",
 		},
 	},
 	adapters = {

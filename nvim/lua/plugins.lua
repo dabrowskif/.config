@@ -10,6 +10,8 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter" },
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.7"), name = "blink" },
 	{ src = "https://github.com/stevearc/conform.nvim", name = "conform" },
+	{ src = "https://github.com/github/copilot.vim", name = "copilot" },
+
 
 	-- ##### NAVIGATION #####
 	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2", name = "harpoon" },
