@@ -1,11 +1,11 @@
 local Configs = {}
 
 Configs.tokyonight = {
-  transparent = true,
-  styles = {
-    sidebars = "transparent",
-    floats = "transparent",
-  },
+	transparent = true,
+	styles = {
+		sidebars = "transparent",
+		floats = "transparent",
+	},
 }
 
 Configs.colorscheme = function()
@@ -16,6 +16,8 @@ Configs.colorscheme = function()
 	vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
 end
 
+Configs.nvim_treesitter_langs = { "typescript", "lua", "javascript", "terraform", "python", "json", "json5" }
+
 ---@type TSConfig
 Configs.nvim_treesitter = {
 	auto_install = true,
@@ -24,6 +26,7 @@ Configs.nvim_treesitter = {
 	},
 	indent = { enable = true },
 }
+
 ---@type conform.setupOpts
 Configs.conform = {
 	format_on_save = {
@@ -112,39 +115,46 @@ Configs.hipatterns = {
 Configs.codeCompanion = {
 	---@type CodeCompanion.Extensions
 	extensions = {
-		-- vectorcode = {
-		-- 	---@type VectorCode.CodeCompanion.ExtensionOpts
-		-- 	opts = {
-		-- 		tool_group = {
-		-- 			enabled = true,
-		-- 			extras = {
-		-- 				-- TODO: setup
-		-- 				"file_search",
-		-- 			},
-		-- 			collapse = false,
-		-- 		},
-		-- 		tool_opts = {
-		-- 			["*"] = {},
-		-- 			ls = {},
-		-- 			vectorise = {},
-		-- 			query = {
-		-- 				max_num = { chunk = -1, document = -1 },
-		-- 				default_num = { chunk = 50, document = 10 },
-		-- 				include_stderr = false,
-		-- 				use_lsp = false,
-		-- 				no_duplicate = true,
-		-- 				chunk_mode = false,
-		-- 				summarise = {
-		-- 					enabled = false,
-		-- 					adapter = nil,
-		-- 					query_augmented = true,
-		-- 				},
-		-- 			},
-		-- 			files_ls = {},
-		-- 			files_rm = {},
-		-- 		},
-		-- 	},
-		-- },
+		vectorcode = {
+			---@type VectorCode.CodeCompanion.ExtensionOpts
+			opts = {
+				tool_group = {
+					-- this will register a tool group called `@vectorcode_toolbox` that contains all 3 tools
+					enabled = true,
+					-- a list of extra tools that you want to include in `@vectorcode_toolbox`.
+					-- if you use @vectorcode_vectorise, it'll be very handy to include
+					-- `file_search` here.
+					extras = {},
+					collapse = false, -- whether the individual tools should be shown in the chat
+				},
+				tool_opts = {
+					---@type VectorCode.CodeCompanion.ToolOpts
+					["*"] = {},
+					---@type VectorCode.CodeCompanion.LsToolOpts
+					ls = {},
+					---@type VectorCode.CodeCompanion.VectoriseToolOpts
+					vectorise = {},
+					---@type VectorCode.CodeCompanion.QueryToolOpts
+					query = {
+						max_num = { chunk = -1, document = -1 },
+						default_num = { chunk = 50, document = 10 },
+						include_stderr = false,
+						use_lsp = false,
+						no_duplicate = true,
+						chunk_mode = false,
+						---@type VectorCode.CodeCompanion.SummariseOpts
+						summarise = {
+							---@type boolean|(fun(chat: CodeCompanion.Chat, results: VectorCode.QueryResult[]):boolean)|nil
+							enabled = false,
+							adapter = nil,
+							query_augmented = true,
+						},
+					},
+					files_ls = {},
+					files_rm = {},
+				},
+			},
+		},
 	},
 	strategies = {
 		chat = {

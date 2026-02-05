@@ -29,7 +29,8 @@ vim.lsp.enable("lua_ls")
 vim.pack.add({ { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig" } })
 vim.pack.add({ { src = "https://github.com/pmizio/typescript-tools.nvim", name = "typescript-tools" } })
 require("typescript-tools").setup({
-	filetypes = { "svelte", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+	-- filetypes = { "svelte", "javascript", "typescript", "javascriptreact", "typescriptreact" },
+	filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
 	settings = {
 		expose_as_code_action = "all",
 		-- tsserver_format_options = function()
@@ -54,6 +55,13 @@ vim.lsp.config["docker_ls"] = {
 }
 vim.lsp.enable("docker_ls")
 
+-- vim.lsp.config["tf"] = {
+-- 	cmd = { "terraform", "--sdtio" },
+-- 	filetypes = { "terraform", "terraform-state", "terraform-vars" },
+-- 	root_markers = { ".git" },
+-- }
+-- vim.lsp.enable("tf")
+
 vim.lsp.config["tf_ls"] = {
 	cmd = { "terraform-ls", "serve" },
 	filetypes = { "terraform", "terraform-state", "tf", "terraform-vars" },
@@ -77,7 +85,7 @@ vim.lsp.enable("svelte_ls")
 vim.lsp.config["python_ls"] = {
 	cmd = { "basedpyright-langserver", "--stdio" },
 	filetypes = { "python" },
-	oot_markers = { "requirements.txt" },
+	root_markers = { "requirements.txt" },
 	settings = {
 		basedpyright = {
 			analysis = {
@@ -100,5 +108,12 @@ vim.lsp.enable("go_ls")
 vim.lsp.config["json_ls"] = {
 	cmd = { "vscode-json-language-server", "--stdio" },
 	filetypes = { "json" },
+}
+vim.lsp.enable("json_ls")
+
+vim.lsp.config["json_ls"] = {
+	cmd = { "tailwindcss-language-server", "--stdio" },
+	filetypes = { "svelte" },
+	root_markers = { ".git" },
 }
 vim.lsp.enable("json_ls")

@@ -7,11 +7,10 @@ vim.pack.add({
 	{ src = "https://github.com/akinsho/toggleterm.nvim", name = "toggleterm" }, -- for Lazydocker
 
 	-- ##### CODING #####
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter", version = "master" },
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.7"), name = "blink" },
 	{ src = "https://github.com/stevearc/conform.nvim", name = "conform" },
 	{ src = "https://github.com/github/copilot.vim", name = "copilot" },
-
 
 	-- ##### NAVIGATION #####
 	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2", name = "harpoon" },
@@ -37,7 +36,7 @@ vim.pack.add({
 	{ src = "https://github.com/dabrowskif/perch.nvim", name = "perch" },
 
 	-- ##### AI #####
-	-- { src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" },
+	{ src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" },
 	{ src = "https://github.com/olimorris/codecompanion.nvim", name = "codecompanion" },
 
 	-- ##### Debugger #####
@@ -58,7 +57,6 @@ local Configs = require("plugins-configs")
 -- vim.schedule(function()
 -- 	vim.cmd.TSUpdate()
 -- end)
-
 
 require("tokyonight").setup(Configs.tokyonight)
 Configs.colorscheme()
