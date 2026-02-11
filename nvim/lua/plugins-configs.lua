@@ -1,3 +1,5 @@
+local Utils = require("utils")
+
 local Configs = {}
 
 Configs.tokyonight = {
@@ -30,19 +32,22 @@ Configs.nvim_treesitter = {
 ---@type conform.setupOpts
 Configs.conform = {
 	format_on_save = {
-		timeout_ms = 2000,
+		timeout_ms = 500,
 		lsp_format = "fallback",
 	},
 	formatters_by_ft = {
 		lua = { "stylua", stop_after_first = true },
-		javascript = { "prettierd", "prettier", "biome", stop_after_first = true },
-		typescript = { "prettierd", "prettier", "biome", stop_after_first = true },
-		svelte = { "prettierd", "prettier", "biome", stop_after_first = true },
+		javascript = Utils.find_js_formatter,
+		typescript = Utils.find_js_formatter,
+		javascriptreact = Utils.find_js_formatter,
+		typescriptreact = Utils.find_js_formatter,
+		svelte = Utils.find_js_formatter,
 		python = { "black" },
 		json = { "jsonlint" },
-		-- dockerfile = { "hadolint" },
-		-- terraform = { "tflint" },
-		-- ["terraform-state"] = { "tflint" },
+		go = { "goimports", "gofmt" },
+		dockerfile = { "hadolint" },
+		terraform = { "tflint" },
+		["terraform-state"] = { "tflint" },
 	},
 }
 
