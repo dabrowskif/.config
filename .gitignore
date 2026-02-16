@@ -31,3 +31,6 @@ tmux/plugins
 !alacritty/**/*
 !yabai
 !yabai/**/*
+
+
+!opencode

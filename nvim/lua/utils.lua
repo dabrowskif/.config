@@ -84,4 +84,31 @@ Utils.find_git_root = function()
 	return root_dir
 end
 
+Utils.all_code_actions = function()
+	local params = vim.lsp.util.make_range_params()
+	params.context = { diagnostics = vim.diagnostic.get(0) }
+
+	-- Request standard actions
+	vim.lsp.buf_request_all(0, "textDocument/codeAction", params, function(results)
+		local actions = {}
+		for _, res in pairs(results) do
+			if res.result then
+				vim.list_extend(actions, res.result)
+			end
+		end
+
+		-- Request source actions
+		params.context.only = { "source" }
+		vim.lsp.buf_request_all(0, "textDocument/codeAction", params, function(source_results)
+			for _, res in pairs(source_results) do
+				if res.result then
+					vim.list_extend(actions, res.result)
+				end
+			end
+
+			vim.lsp.util.show_code_actions(actions)
+		end)
+	end)
+end
+
 return Utils

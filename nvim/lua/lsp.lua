@@ -111,9 +111,12 @@ vim.lsp.config["json_ls"] = {
 }
 vim.lsp.enable("json_ls")
 
-vim.lsp.config["json_ls"] = {
-	cmd = { "tailwindcss-language-server", "--stdio" },
-	filetypes = { "svelte" },
-	root_markers = { ".git" },
-}
-vim.lsp.enable("json_ls")
+-- vim.lsp.config["json_ls"] = {
+-- 	cmd = { "tailwindcss-language-server", "--stdio" },
+-- 	filetypes = { "svelte" },
+-- 	root_markers = { ".git" },
+-- }
+-- vim.lsp.enable("json_ls")
+
+-- @INFO: should work without specifying the config
+vim.lsp.enable("biome")

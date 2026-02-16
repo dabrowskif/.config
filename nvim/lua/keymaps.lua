@@ -34,7 +34,10 @@ vim.keymap.set("n", "gd", Snacks.picker.lsp_definitions, { desc = "Go definition
 vim.keymap.set("n", "gD", Snacks.picker.lsp_declarations, { desc = "Go declaration" })
 vim.keymap.set("n", "gt", Snacks.picker.lsp_type_definitions, { desc = "Go type" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
-vim.keymap.set({ "n", "x" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+vim.keymap.set({ "n", "x" }, "<leader>cs", vim.lsp.buf.code_action, { desc = "Code Actions" })
+vim.keymap.set({ "n", "x" }, "<leader>ca", function()
+	vim.lsp.buf.code_action({ context = { only = { "source" } } })
+end, { desc = "Source Actions" })
 
 -- LSP - TypeScript
 vim.keymap.set("n", "<leader>fr", ":LspRestart<CR>", { desc = "Restart LSP", silent = true })
@@ -69,7 +72,9 @@ vim.keymap.set("n", "<leader>sg", Snacks.picker.grep, { desc = "Search grep" })
 vim.keymap.set("n", "<leader>sb", Snacks.picker.lines, { desc = "Search buffer" })
 vim.keymap.set("n", "<leader>sk", Snacks.picker.keymaps, { desc = "Search keymaps" })
 vim.keymap.set("n", "<leader>sl", Snacks.picker.resume, { desc = "Search last" })
-vim.keymap.set("n", "<leader>sr", function() Snacks.picker.lsp_references({include_current = true}) end, { desc = "Search references" })
+vim.keymap.set("n", "<leader>sr", function()
+	Snacks.picker.lsp_references({ include_current = true })
+end, { desc = "Search references" })
 local harpoon = require("harpoon")
 vim.keymap.set("n", "<leader>a", function()
 	harpoon:list():add()
@@ -96,6 +101,20 @@ vim.keymap.set("n", "<leader>go", function()
 end, { desc = "Open file in git" })
 vim.keymap.set("n", "<leader>tn", Snacks.notifier.show_history, { desc = "Toggle notifications" })
 vim.keymap.set("n", "<leader>cc", ":CodeCompanionActions<CR>", { desc = "Code companion actions" })
+
+-- Helpers TS
+vim.keymap.set(
+	"n",
+	"<leader>clr",
+	[[:normal! ciwconsole.log("<Esc>pa", <Esc>pa)<Esc>]],
+	{ noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	"<leader>cln",
+	[[:normal! viwyoconsole.log("<Esc>pa", <Esc>pa)<Esc>]],
+	{ noremap = true, silent = true }
+)
 
 -- Debugger
 vim.keymap.set("n", "<leader>dt", require("dapui").toggle, { desc = "[D]ebugger: toggle" })
