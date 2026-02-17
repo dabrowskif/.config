@@ -34,3 +34,4 @@ tmux/plugins
 
 
 !opencode
+!opencode/**/*
