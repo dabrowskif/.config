@@ -53,8 +53,8 @@ Utils.find_js_formatter = function(bufnr)
 
 	local formatterFiles = {
 		biome = { ".biomerc", ".biome.json", "biome.jsonc" },
-		prettier = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
 		eslint = { ".eslintrc", ".eslintrc.js", ".eslintrc.json" },
+		prettier = { ".prettierrc", ".prettierrc.js", ".prettierrc.json" },
 	}
 
 	for formatter, files in pairs(formatterFiles) do

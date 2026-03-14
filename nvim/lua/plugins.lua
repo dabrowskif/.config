@@ -11,6 +11,7 @@ vim.pack.add({
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.7"), name = "blink" },
 	{ src = "https://github.com/stevearc/conform.nvim", name = "conform" },
 	{ src = "https://github.com/github/copilot.vim", name = "copilot" },
+	{ src = "https://github.com/rafamadriz/friendly-snippets", name = "friendly-snippets" },
 
 	-- ##### NAVIGATION #####
 	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2", name = "harpoon" },
@@ -23,6 +24,7 @@ vim.pack.add({
 
 	-- ##### UI #####
 	{ src = "https://github.com/folke/tokyonight.nvim", name = "tokyonight" },
+	{ src = "https://github.com/ellisonleao/gruvbox.nvim", name = "gruvbox" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim", name = "lualine" },
 	{ src = "https://github.com/MunifTanjim/nui.nvim", name = "nui" },
 	{ src = "https://github.com/folke/noice.nvim", name = "noice" },
@@ -59,7 +61,8 @@ local Configs = require("plugins-configs")
 -- end)
 
 require("tokyonight").setup(Configs.tokyonight)
-Configs.colorscheme()
+require("gruvbox").setup()
+Configs.colorschemeGruvbox()
 
 require("snacks").setup(Configs.snacks)
 require("codecompanion").setup(Configs.codeCompanion)
@@ -76,7 +79,7 @@ require("mason").setup()
 require("mini.hipatterns").setup(Configs.hipatterns)
 require("mini.cursorword").setup()
 require("mini.surround").setup(Configs.miniSurround)
--- require("mini.pairs").setup()
+require("mini.pairs").setup()
 require("nvim-treesitter.configs").setup(Configs.nvim_treesitter)
 require("blink.cmp").setup(Configs.blink)
 require("perch").setup(Configs.perch)

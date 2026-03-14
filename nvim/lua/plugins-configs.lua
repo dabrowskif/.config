@@ -10,12 +10,20 @@ Configs.tokyonight = {
 	},
 }
 
-Configs.colorscheme = function()
+Configs.colorschemeTokyo = function()
 	vim.cmd.colorscheme("tokyonight-night")
 	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#FFAF00" })
 	vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFAF00" })
 	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FFAF00" })
 	vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
+end
+
+Configs.colorschemeGruvbox = function()
+	vim.cmd.colorscheme("gruvbox")
+	-- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#FFAF00" })
+	-- vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFAF00" })
+	-- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FFAF00" })
+	-- vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
 end
 
 Configs.nvim_treesitter_langs = { "typescript", "lua", "javascript", "terraform", "python", "json", "json5" }
@@ -44,7 +52,7 @@ Configs.conform = {
 		svelte = Utils.find_js_formatter,
 		python = { "black" },
 		json = { "jsonlint" },
-		go = { "goimports", "gofmt" },
+		go = { "goimports" },
 		dockerfile = { "hadolint" },
 		terraform = { "tflint" },
 		["terraform-state"] = { "tflint" },
@@ -59,6 +67,8 @@ Configs.snacks = {
 			input = {
 				keys = {
 					["<C-e>"] = { "confirm", mode = { "n", "i" } },
+					["<c-h>"] = { "edit_split", mode = { "n", "i" } },
+					["<c-s>"] = { "edit_vsplit", mode = { "n", "i" } },
 				},
 			},
 		},
