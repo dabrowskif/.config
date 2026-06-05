@@ -101,6 +101,7 @@ vim.keymap.set("n", "<leader>go", function()
 end, { desc = "Open file in git" })
 vim.keymap.set("n", "<leader>tn", Snacks.notifier.show_history, { desc = "Toggle notifications" })
 vim.keymap.set("n", "<leader>cc", ":CodeCompanionActions<CR>", { desc = "Code companion actions" })
+vim.keymap.set("n", "<leader>ta", require("vimclaude").open, { desc = "Open claude code" })
 
 -- Helpers TS
 vim.keymap.set(

@@ -2,28 +2,37 @@ local Utils = require("utils")
 
 local Configs = {}
 
-Configs.tokyonight = {
-	transparent = true,
-	styles = {
-		sidebars = "transparent",
-		floats = "transparent",
-	},
-}
-
-Configs.colorschemeTokyo = function()
-	vim.cmd.colorscheme("tokyonight-night")
-	vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#FFAF00" })
-	vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFAF00" })
-	vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FFAF00" })
-	vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
+--- @param theme 'onedark' | 'gruvbox' | 'tokyonight'
+Configs.colorscheme = function(theme)
+	if theme == "tokyonight" then
+		require("tokyonight").setup({
+			styles = {
+				sidebars = "transparent",
+				floats = "transparent",
+			},
+		})
+		vim.cmd.colorscheme("tokyonight-night")
+		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#FFAF00" })
+		vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFAF00" })
+		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FFAF00" })
+		vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
+	elseif theme == "onedark" then
+		require("onedark").setup({
+			style = "deep",
+		})
+		vim.cmd.colorscheme("onedark")
+		vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#FFAF00" })
+		vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFAF00" })
+		vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FFAF00" })
+		vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
+	elseif theme == "gruvbox" then
+		require("gruvbox").setup()
+		vim.cmd.colorscheme("gruvbox")
+	end
 end
 
 Configs.colorschemeGruvbox = function()
-	vim.cmd.colorscheme("gruvbox")
-	-- vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#FFAF00" })
-	-- vim.api.nvim_set_hl(0, "LineNr", { fg = "#FFAF00" })
-	-- vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#FFAF00" })
-	-- vim.api.nvim_set_hl(0, "SnacksNotifierSuccess", { fg = "#00ff5f" })
+	vim.cmd.colorscheme("onedark")
 end
 
 Configs.nvim_treesitter_langs = { "typescript", "lua", "javascript", "terraform", "python", "json", "json5" }
@@ -433,6 +442,16 @@ Configs.getNvimDapConfig = function()
 				name = "Launch file (node)",
 				program = "${file}",
 				cwd = "${workspaceFolder}",
+			},
+			{
+				type = "pwa-node",
+				request = "attach",
+				name = "Attach to Docker: measurements-worker (10070)",
+				address = "localhost",
+				port = 10070,
+				localRoot = "${workspaceFolder}/src",
+				remoteRoot = "/opt/app/src",
+				skipFiles = { "<node_internals>/**" },
 			},
 		}
 	end
