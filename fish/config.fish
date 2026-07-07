@@ -34,5 +34,3 @@ set PATH $PATH $HOME/.local/bin
 set PATH $PATH /usr/local/go/bin
 # set path $PATH $
 
-# opencode
-fish_add_path /home/fdabrowski/.opencode/bin

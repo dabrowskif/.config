@@ -37,11 +37,9 @@ vim.pack.add({
 	{ src = "https://github.com/folke/lazydev.nvim", name = "lazydev" },
 	{ src = "https://github.com/mason-org/mason.nvim", name = "mason" },
 	{ src = "https://github.com/dabrowskif/perch.nvim", name = "perch" },
-	-- { src = "/home/fdabrowski/Programming/claudevim", name = "vimclaude" },
+	{ src = "https://github.com/dabrowskif/vimclaude.nvim", name = "vimclaude" },
 
 	-- ##### AI #####
-	{ src = "https://github.com/Davidyz/VectorCode", name = "vectorcode" },
-	{ src = "https://github.com/olimorris/codecompanion.nvim", name = "codecompanion" },
 
 	-- ##### Debugger #####
 	{ src = "https://github.com/rcarriga/nvim-dap-ui", name = "dapui" }, -- dependency
@@ -52,13 +50,10 @@ vim.pack.add({
 	{ src = "https://github.com/theHamsta/nvim-dap-virtual-text", name = "nvim-dap-virtual-text" }, -- inline hints
 })
 
-vim.opt.runtimepath:prepend("/home/fdabrowski/Programming/vimclaude")
+-- vim.opt.runtimepath:prepend("/home/fdabrowski/Programming/vimclaude")
 
 local Configs = require("plugins-configs")
 
--- TODO: setup this on startup
--- "uv tool upgrade vectorcode"
---
 -- TODO: setup this on startup
 -- vim.schedule(function()
 -- 	vim.cmd.TSUpdate()
@@ -68,7 +63,6 @@ Configs.colorscheme("tokyonight")
 
 require("vimclaude").setup({ eager_load = true })
 require("snacks").setup(Configs.snacks)
-require("codecompanion").setup(Configs.codeCompanion)
 require("conform").setup(Configs.conform)
 require("harpoon"):setup()
 require("oil").setup(Configs.oil)

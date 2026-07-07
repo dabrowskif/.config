@@ -49,7 +49,7 @@ Configs.nvim_treesitter = {
 ---@type conform.setupOpts
 Configs.conform = {
 	format_on_save = {
-		timeout_ms = 500,
+		timeout_ms = 2000,
 		lsp_format = "fallback",
 	},
 	formatters_by_ft = {
@@ -132,89 +132,6 @@ Configs.hipatterns = {
 		note = { pattern = "%f[%w]()NOTE()%f[%W]", group = "MiniHipatternsNote" },
 		info = { pattern = "%f[%w]()INFO()%f[%W]", group = "MiniHipatternsNote" },
 		hex_color = require("mini.hipatterns").gen_highlighter.hex_color(),
-	},
-}
-
----@type CodeCompanion
-Configs.codeCompanion = {
-	---@type CodeCompanion.Extensions
-	extensions = {
-		vectorcode = {
-			---@type VectorCode.CodeCompanion.ExtensionOpts
-			opts = {
-				tool_group = {
-					-- this will register a tool group called `@vectorcode_toolbox` that contains all 3 tools
-					enabled = true,
-					-- a list of extra tools that you want to include in `@vectorcode_toolbox`.
-					-- if you use @vectorcode_vectorise, it'll be very handy to include
-					-- `file_search` here.
-					extras = {},
-					collapse = false, -- whether the individual tools should be shown in the chat
-				},
-				tool_opts = {
-					---@type VectorCode.CodeCompanion.ToolOpts
-					["*"] = {},
-					---@type VectorCode.CodeCompanion.LsToolOpts
-					ls = {},
-					---@type VectorCode.CodeCompanion.VectoriseToolOpts
-					vectorise = {},
-					---@type VectorCode.CodeCompanion.QueryToolOpts
-					query = {
-						max_num = { chunk = -1, document = -1 },
-						default_num = { chunk = 50, document = 10 },
-						include_stderr = false,
-						use_lsp = false,
-						no_duplicate = true,
-						chunk_mode = false,
-						---@type VectorCode.CodeCompanion.SummariseOpts
-						summarise = {
-							---@type boolean|(fun(chat: CodeCompanion.Chat, results: VectorCode.QueryResult[]):boolean)|nil
-							enabled = false,
-							adapter = nil,
-							query_augmented = true,
-						},
-					},
-					files_ls = {},
-					files_rm = {},
-				},
-			},
-		},
-	},
-	strategies = {
-		chat = {
-			adapter = "copilot",
-		},
-		inline = {
-			adapter = "copilot",
-		},
-		cmd = {
-			adapter = "copilot",
-		},
-	},
-	adapters = {
-		http = {
-			anthropic = function()
-				return require("codecompanion.adapters").extend("anthropic", {
-					env = {
-						-- INFO: Adjust the path if needed
-						api_key = "cmd:~/.config/nvim/scripts/extract-env.sh ANTHROPIC_KEY ~/.config/nvim/.env",
-					},
-					schema = {
-						model = {
-							default = "claude-sonnet-4-5-20250929",
-						},
-					},
-				})
-			end,
-			openai = function()
-				return require("codecompanion.adapters").extend("openai", {
-					env = {
-						-- INFO: Adjust the path if needed
-						api_key = "cmd:~/.config/nvim/scripts/extract-env.sh OPENAI_KEY ~/.config/nvim/.env",
-					},
-				})
-			end,
-		},
 	},
 }
 

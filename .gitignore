@@ -15,6 +15,7 @@ tmux/plugins
 !foot/**/*
 !fish
 !fish/**/*
+fish_variables
 !omf
 !omf/**/*
 
