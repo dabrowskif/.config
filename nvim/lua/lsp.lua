@@ -85,16 +85,15 @@ vim.lsp.enable("svelte_ls")
 vim.lsp.config["python_ls"] = {
 	cmd = { "basedpyright-langserver", "--stdio" },
 	filetypes = { "python" },
-	root_markers = { "requirements.txt" },
+	root_markers = { "pyproject.toml", "uv.lock", ".git", "requirements.txt" },
 	settings = {
-		basedpyright = {
-			analysis = {
-				typeCheckingMode = "basic",
-				autoSearchPaths = true,
-				useLibraryCodeForTypes = true,
-				diagnosticMode = "workspace",
-			},
-		},
+		-- basedpyright = {
+		-- 	analysis = {
+		-- 		autoSearchPaths = true,
+		-- 		useLibraryCodeForTypes = true,
+		-- 		diagnosticMode = "workspace",
+		-- 	},
+		-- },
 	},
 }
 vim.lsp.enable("python_ls")
